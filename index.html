@@ -146,7 +146,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,40px);l
 /* projects */
 .projects{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
 .proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
-.proj.lead{grid-row:span 2;border-top:3px solid var(--accent)}
+.proj.lead{grid-column:1 / -1;border-top:3px solid var(--accent)}
 .proj h3{font-family:var(--display);font-size:23px;font-weight:700;letter-spacing:-.015em;margin:0 0 2px}
 .proj .sub{color:var(--muted);font-size:14px;margin:0 0 14px}
 .proj p{margin:0 0 14px;font-size:15.5px}
@@ -199,7 +199,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   .steps{grid-template-columns:1fr 1fr}
   .steps li:nth-child(3){border-left:0}
   .steps li:nth-child(n+3){border-top:1px solid var(--line)}
-  .proj.lead{grid-row:auto}
+  .proj.lead{grid-column:auto}
   .github-grid{grid-template-columns:1fr}
   .topbar nav a:not(.mail):not(.language){display:none}
   section{padding:60px 0}
@@ -611,7 +611,11 @@ html.js .reveal.in-view{opacity:1;transform:none}
   const status = document.getElementById('github-status');
   const repos = [];
   const featured = new Set(['p2p-surec-madenciligi', 'efatura-dogrulama-kapsami', 'AI-Assisted-Fraud-Detection-System', 'TCMB-TEMEL-VER-LER-ANAL-Z-2020-25-YILLARI', 'feature-engineering-fundamentals']);
-  const excluded = new Set(['olcayto-akbudak', 'olcayto-akbudak.github.io', 'IsPAnom', 'To-Do-List', 'online-sales-project-scaffold']);
+  const excluded = new Set(['olcayto-akbudak', 'olcayto-akbudak.github.io', 'IsPAnom', 'To-Do-List', 'online-sales-project-scaffold', 'VeriAnaliziKonsol']);
+  const repoSummaries = {
+    'AI_Mergen_Trading_System_V1.0': 'BIST tarama ve piyasa araştırması için veri hattı ve statik pano.',
+    'ecommerce-subscription-churn-sql': 'Abonelik verisinde SQL ile müşteri kaybı analizi.'
+  };
   try {
     // GitHub's public REST API needs no token for publicly visible repositories.
     for (let page = 1; page <= 10; page++) {
@@ -651,7 +655,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
       link.textContent = repo.name.replace(/[-_]/g, ' ');
       title.append(link);
       const description = document.createElement('p');
-      description.textContent = repo.description || 'Projenin ayrıntılarını GitHub deposunda inceleyin.';
+      description.textContent = repo.description || repoSummaries[repo.name] || 'Yöntem ve uygulama ayrıntıları README dosyasında.';
       const meta = document.createElement('div');
       meta.className = 'repo-meta';
       for (const label of [repo.language, repo.fork ? 'Fork' : null, repo.archived ? 'Arşiv' : null].filter(Boolean)) {
