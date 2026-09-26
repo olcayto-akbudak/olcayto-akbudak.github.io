@@ -274,7 +274,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
       <div class="actions">
         <a class="btn primary" href="mailto:akbudakolcaytoibrahim@gmail.com">E-posta gönder</a>
         <a class="btn" href="#deneyim">Deneyimim</a>
-        <a class="btn" href="#analizler">20 analiz projesi</a>
+        <a class="btn" href="#analizler">Analiz çalışmalarım</a>
       </div>
     </div>
 
@@ -376,49 +376,51 @@ html.js .reveal.in-view{opacity:1;transform:none}
 <section id="projeler" class="tint">
   <div class="wrap split">
     <div>
-      <h2>Kişisel projeler</h2>
-      <p class="side-note">Kişisel çalışmalarım. Yeni vaka çalışmalarını tamamlandıkça ekliyorum.</p>
+      <h2>Öne çıkan projeler</h2>
+      <p class="side-note">Yöntemi, bulguları ve kaynak kodu belgelenmiş kapsamlı çalışmalarım.</p>
     </div>
     <div>
     <div class="projects">
       <article class="proj lead">
-        <h3>Finans Takip</h3>
-        <p class="sub">Borsa İstanbul analiz ve takip uygulaması</p>
-        <p>Basit bir fiyat tahmini prototipi olarak başladı; zamanla BIST analizi, makine öğrenmesiyle fiyat tahmini, çok kullanıcılı Telegram botu, portföy işlem takibi ve gerçek zamanlı fiyat akışı içeren bir uygulamaya dönüştü.</p>
+        <h3>Satın alma–ödeme süreç madenciliği</h3>
+        <p class="sub">1,6 milyon olay · <a href="https://github.com/olcayto-akbudak/p2p-surec-madenciligi" target="_blank" rel="noopener noreferrer">README ve kaynak kod ↗</a></p>
+        <p>SAP olay günlüğünde beklemeleri, ödeme blokelerini ve mal kabulsüz ödeme istisnalarını inceledim. Satıcı içi karşılaştırmayla görünen gecikme ile kontrol edilebilir gecikmeyi ayırdım.</p>
         <div class="finding">
           <b>Öne çıkan bulgu</b>
-          Modelin tahminlerinde sistematik bir negatif sapma tespit ettim. Kök nedenin hedef değişken olarak mutlak fiyatın kullanılması olduğunu gösterdim ve hedefi oransal getiriye çevirerek düzelttim.
+          Mal kabulsüz ödeme kuralının işaretlediği 655 kalemin 585'i düzeltme akışıydı; kalan 70 istisnanın tamamında ödeme blokesi elle kaldırılmıştı.
         </div>
-        <ul class="stack"><li>Python</li><li>Flask</li><li>SQLite</li><li>scikit-learn</li><li>WebSocket</li><li>Telegram Bot API</li></ul>
+        <ul class="stack"><li>Python</li><li>pandas</li><li>Süreç madenciliği</li><li>Uyum analizi</li></ul>
       </article>
       <article class="proj">
-        <h3>IsPAnom</h3>
-        <p class="sub">Görev ve proje yönetim aracı · <a href="https://github.com/olcayto-akbudak/IsPAnom" target="_blank" rel="noopener noreferrer">Depo ↗</a></p>
-        <p>Kanban panosu ve Gantt şemasıyla kişisel iş takibi. GitHub Pages üzerinde yayında.</p>
-        <ul class="stack"><li>JavaScript</li><li>GitHub Pages</li></ul>
+        <h3>e-Fatura doğrulama kapsamı</h3>
+        <p class="sub">57 hata senaryosu · <a href="https://github.com/olcayto-akbudak/efatura-dogrulama-kapsami" target="_blank" rel="noopener noreferrer">README ve kaynak kod ↗</a></p>
+        <p>Dört örnek faturaya uygulanan mutasyonlarla GİB XSD ve şematron kurallarının hangi hata türlerini yakaladığını ölçtüm. Ek aritmetik kontroller ve kural boşlukları için öneriler belgeledim.</p>
+        <ul class="stack"><li>Python</li><li>XML / UBL-TR</li><li>Mutasyon testi</li></ul>
+      </article>
+      <article class="proj">
+        <h3>Yapay zekâ destekli sahtekârlık tespiti</h3>
+        <p class="sub"><a href="https://github.com/olcayto-akbudak/AI-Assisted-Fraud-Detection-System" target="_blank" rel="noopener noreferrer">README ve kaynak kod ↗</a></p>
+        <p>Denetimli ve denetimsiz öğrenme yöntemleriyle anomali ve sahtekârlık incelemesi.</p>
+        <ul class="stack"><li>Python</li><li>Makine öğrenmesi</li><li>Isolation Forest</li></ul>
       </article>
     </div>
     <div class="github-section">
       <div class="github-head">
-        <h3>Öne çıkan GitHub depolarım</h3>
+        <h3>Seçilmiş GitHub depolarım</h3>
         <a href="https://github.com/olcayto-akbudak?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profilimde tümünü gör ↗</a>
       </div>
-      <p class="github-status">Seçilmiş açık depolar · yeni çalışmalar tamamlandıkça güncellenir.</p>
+      <p class="github-status">Ayrıntılı README ve kapsamlı analiz içeren açık depolar.</p>
       <div class="github-grid" id="curated-repos">
 <!-- REPOS_START -->
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/IsPAnom" target="_blank" rel="noopener noreferrer">IsPAnom</a></h4><p>Görev ve proje yönetimi</p><div class="repo-meta"><span>HTML</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/ecommerce-subscription-churn-sql" target="_blank" rel="noopener noreferrer">ecommerce subscription churn sql</a></h4><p>SQL · müşteri kaybı analizi</p><div class="repo-meta"><span>GitHub</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/amazon-sql-reporting" target="_blank" rel="noopener noreferrer">amazon sql reporting</a></h4><p>SQL · satış raporlaması</p><div class="repo-meta"><span>GitHub</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/retail-sales-sql-analysis" target="_blank" rel="noopener noreferrer">retail sales sql analysis</a></h4><p>SQL · perakende analizi</p><div class="repo-meta"><span>GitHub</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/data-cleaning-pipeline-pandas" target="_blank" rel="noopener noreferrer">data cleaning pipeline pandas</a></h4><p>Python · veri temizleme</p><div class="repo-meta"><span>Python</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/AI-Assisted-Fraud-Detection-System" target="_blank" rel="noopener noreferrer">AI Assisted Fraud Detection System</a></h4><p>Yapay zekâ destekli anomali incelemesi</p><div class="repo-meta"><span>Python</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/AI_Mergen_Trading_System_V1.0" target="_blank" rel="noopener noreferrer">AI Mergen Trading System V1.0</a></h4><div class="repo-meta"><span>Python</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/feature-engineering-fundamentals" target="_blank" rel="noopener noreferrer">feature engineering fundamentals</a></h4><div class="repo-meta"><span>Python</span></div></article>
-<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/Akilli-Finansal-Analiz-Tahmin-Sistemi" target="_blank" rel="noopener noreferrer">Akilli Finansal Analiz Tahmin Sistemi</a></h4><div class="repo-meta"><span>Python</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/p2p-surec-madenciligi" target="_blank" rel="noopener noreferrer">Satın alma–ödeme süreç madenciliği</a></h4><p>Olay günlüğünde bekleme ve kontrol istisnaları</p><div class="repo-meta"><span>Python</span><span>README</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/efatura-dogrulama-kapsami" target="_blank" rel="noopener noreferrer">e-Fatura doğrulama kapsamı</a></h4><p>57 mutasyonla XSD ve şematron kapsamı</p><div class="repo-meta"><span>Python</span><span>README</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/AI-Assisted-Fraud-Detection-System" target="_blank" rel="noopener noreferrer">AI Assisted Fraud Detection System</a></h4><p>Makine öğrenmesiyle sahtekârlık analizi</p><div class="repo-meta"><span>Python</span><span>README</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/TCMB-TEMEL-VER-LER-ANAL-Z-2020-25-YILLARI" target="_blank" rel="noopener noreferrer">TCMB veri analizi</a></h4><p>Makroekonomik verilerin incelenmesi</p><div class="repo-meta"><span>README</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/feature-engineering-fundamentals" target="_blank" rel="noopener noreferrer">Feature engineering fundamentals</a></h4><p>Özellik mühendisliği ve uygulanabilir örnekler</p><div class="repo-meta"><span>Python</span><span>README</span></div></article>
 <!-- REPOS_END -->
       </div>
-      <div class="github-head" style="margin-top:34px"><h3>Tüm açık depolarım</h3></div>
-      <p class="github-status" id="github-status" role="status" aria-live="polite">GitHub depoları yükleniyor…</p>
+      <div class="github-head" style="margin-top:34px"><h3>Diğer belgelenmiş projeler</h3></div>
+      <p class="github-status" id="github-status" role="status" aria-live="polite">README içeren depolar yükleniyor…</p>
       <div class="github-grid" id="github-repos"></div>
     </div>
     </div>
@@ -428,7 +430,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
 <section id="analizler" aria-labelledby="analysis-title">
   <div class="wrap">
     <p class="status">Uygulamalı analiz portföyü</p>
-    <h2 id="analysis-title">20 çalıştırılabilir analiz çalışması</h2>
+    <h2 id="analysis-title">Analiz çalışmalarım</h2>
     <p class="case-intro">Entegrasyon, ERP, operasyon, müşteri ve finans problemlerini SQL ile inceledim. Her çalışmada sentetik veri, sorgu, Python çalıştırma dosyası ve üretilmiş sonuç raporu var. Bunlar gerçek kurum sonuçları olarak sunulmaz.</p>
     <div class="case-tools" role="search" aria-label="Analiz projelerinde ara">
       <input type="search" id="case-search" placeholder="Proje veya problem ara…" aria-label="Analiz projelerinde ara">
@@ -608,6 +610,8 @@ html.js .reveal.in-view{opacity:1;transform:none}
   const list = document.getElementById('github-repos');
   const status = document.getElementById('github-status');
   const repos = [];
+  const featured = new Set(['p2p-surec-madenciligi', 'efatura-dogrulama-kapsami', 'AI-Assisted-Fraud-Detection-System', 'TCMB-TEMEL-VER-LER-ANAL-Z-2020-25-YILLARI', 'feature-engineering-fundamentals']);
+  const excluded = new Set(['olcayto-akbudak', 'olcayto-akbudak.github.io', 'IsPAnom', 'To-Do-List', 'online-sales-project-scaffold']);
   try {
     // GitHub's public REST API needs no token for publicly visible repositories.
     for (let page = 1; page <= 10; page++) {
@@ -620,9 +624,22 @@ html.js .reveal.in-view{opacity:1;transform:none}
       repos.push(...batch.filter(repo => !repo.private));
       if (batch.length < 100) break;
     }
-    repos.sort((a, b) => new Date(b.pushed_at || b.updated_at || 0) - new Date(a.pushed_at || a.updated_at || 0));
+    // Check the actual root README before displaying a repository. Tiny starter projects
+    // and the site/profile repositories do not belong in the portfolio selection.
+    const candidates = repos.filter(repo => repo.size >= 10 && !repo.fork && !repo.archived && !featured.has(repo.name) && !excluded.has(repo.name));
+    const documented = (await Promise.all(candidates.map(async repo => {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${user}/${encodeURIComponent(repo.name)}/contents/README.md`, {
+          headers: { Accept: 'application/vnd.github+json' }
+        });
+        if (!response.ok) return null;
+        const readme = await response.json();
+        return readme.type === 'file' && readme.size >= 400 ? repo : null;
+      } catch (_) { return null; }
+    }))).filter(Boolean);
+    documented.sort((a, b) => new Date(b.pushed_at || b.updated_at || 0) - new Date(a.pushed_at || a.updated_at || 0));
     const fragment = document.createDocumentFragment();
-    for (const repo of repos) {
+    for (const repo of documented) {
       // Use DOM text nodes for remote content so repository names and descriptions cannot inject markup.
       const card = document.createElement('article');
       card.className = 'repo';
@@ -646,7 +663,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
       fragment.append(card);
     }
     list.replaceChildren(fragment);
-    status.textContent = repos.length ? `${repos.length} açık depo · Son eklenen ve güncellenenler önce` : 'Henüz açık depo bulunamadı.';
+    status.textContent = documented.length ? `${documented.length} belgelenmiş proje · Son güncellenenler önce` : 'Ek belgelenmiş proje bulunamadı.';
   } catch (error) {
     status.textContent = 'GitHub projeleri şu anda yüklenemedi. Yukarıdaki profil bağlantısından inceleyebilirsiniz.';
     console.warn('GitHub projeleri yüklenemedi:', error);
@@ -668,7 +685,7 @@ const cards = [...document.querySelectorAll('.case-card')];
 const search = document.getElementById('case-search');
 const category = document.getElementById('case-category');
 function filterCases() {
-  const fold = value => value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('tr-TR');
+  const fold = value => value.replace(/\u0307/g, '').toLocaleLowerCase('tr-TR');
   const query = fold(search.value.trim());
   let visible = 0;
   cards.forEach(card => {

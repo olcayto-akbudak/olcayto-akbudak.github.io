@@ -1,12 +1,12 @@
 # İbrahim Olcayto Akbudak | İş Geliştirme Analisti
 
-GitHub Pages portföyü ve **20 tamamlanmış, yeniden çalıştırılabilir demo analiz projesi**. Veri kümeleri tamamen sentetiktir; gerçek şirket, müşteri veya GİB kayıtlarını temsil etmez.
+GitHub Pages portföyü ve **yeniden çalıştırılabilir analiz çalışmaları**. Veri kümeleri tamamen sentetiktir; gerçek şirket, müşteri veya GİB kayıtlarını temsil etmez.
 
 ## Site
 
-`index.html` ana sayfadır. `en.html` İngilizce giriş sayfası, `og-image.png` paylaşım görselidir. `analizler.html` 20 projenin sonuçlarını ve sorgularını gezilebilir tek sayfada sunar. `analizler-kaynak-kod.zip` bütün veri ve çalıştırılabilir proje klasörlerini içerir; `analizler/<proje>/index.html` adresleri tam kaynak dağıtımında ayrıca çalışır. Filtrelenebilir proje kartları ana sayfada bulunur. Animasyonlar azaltılmış hareket sistem ayarına uyar.
+`index.html` ana sayfadır. `en.html` İngilizce giriş sayfası, `og-image.png` paylaşım görselidir. `analizler.html` analiz çalışmalarının sonuçlarını ve sorgularını gezilebilir tek sayfada sunar. `analizler-kaynak-kod.zip` bütün veri ve çalıştırılabilir proje klasörlerini içerir; `analizler/<proje>/index.html` adresleri tam kaynak dağıtımında ayrıca çalışır. Filtrelenebilir proje kartları ana sayfada bulunur. Animasyonlar azaltılmış hareket sistem ayarına uyar.
 
-GitHub açık depoları sayfa açıldığında herkese açık API'den çekilir. API geçici olarak çalışmazsa profil bağlantısı görünür kalır. Seçili proje anlatımları ve 20 demo analiz, statik site içeriğidir ve kaynak güncellemesiyle değişir.
+GitHub depoları sayfa açıldığında herkese açık API'den çekilir; yalnız kökte ayrıntılı README.md bulunan, anlamlı kapsamda depolar listelenir. Küçük örnek uygulamalar ve profil deposu seçkiye alınmaz. API geçici olarak çalışmazsa profil bağlantısı görünür kalır. Seçili proje anlatımları ve demo analizler, statik site içeriğidir ve kaynak güncellemesiyle değişir.
 
 ## Tekrar üretme
 
