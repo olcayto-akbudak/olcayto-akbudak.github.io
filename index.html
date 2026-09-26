@@ -9,6 +9,14 @@
 <meta property="og:title" content="İbrahim Olcayto Akbudak">
 <meta property="og:description" content="ERP, e-Dönüşüm ve GİB entegrasyonu üzerine çalışan iş ve sistem analisti.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://olcayto-akbudak.github.io/">
+<meta property="og:image" content="https://olcayto-akbudak.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://olcayto-akbudak.github.io/">
+<link rel="alternate" hreflang="en" href="https://olcayto-akbudak.github.io/en.html">
+<link rel="alternate" hreflang="tr" href="https://olcayto-akbudak.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308151F'/%3E%3Cpath d='M20 22 12 32l8 10M44 22l8 10-8 10M36 18l-8 28' stroke='%236FDCC0' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,6 +71,10 @@ h1,h2,h3,p{margin-top:0}
 .topbar nav a:hover{color:var(--ink)}
 .topbar nav .mail{color:var(--ink);border:1px solid var(--line);padding:8px 14px;border-radius:8px}
 .topbar nav .mail:hover{border-color:var(--accent)}
+.topbar nav .language{border:1px solid var(--line);padding:7px 10px;border-radius:8px;color:var(--ink)}
+.contact-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.contact-links a{font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:9px 16px}
+.contact-links a:hover{border-color:var(--accent)}
 
 /* hero */
 .hero{padding:96px 0 88px}
@@ -189,7 +201,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   .steps li:nth-child(n+3){border-top:1px solid var(--line)}
   .proj.lead{grid-row:auto}
   .github-grid{grid-template-columns:1fr}
-  .topbar nav a:not(.mail){display:none}
+  .topbar nav a:not(.mail):not(.language){display:none}
   section{padding:60px 0}
 }
 @media (max-width:520px){
@@ -200,7 +212,6 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   .lang{grid-template-columns:88px 1fr 50px}
   .brand span{display:none}
 }
-
 /* portfolio refinements */
 [hidden]{display:none!important}
 .scroll-progress{position:fixed;inset:0 auto auto 0;width:100%;height:3px;z-index:30;pointer-events:none;background:var(--accent);transform:scaleX(0);transform-origin:left center}
@@ -246,6 +257,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
       <a href="#deneyim">Deneyim</a>
       <a href="#projeler">Projeler</a>
       <a class="analysis-nav" href="#analizler">Analizler</a>
+      <a class="language" href="en.html" lang="en" hreflang="en" aria-label="English version">EN</a>
       <a class="mail" href="#iletisim">İletişim</a>
     </nav>
   </div>
@@ -255,20 +267,21 @@ html.js .reveal.in-view{opacity:1;transform:none}
 <section class="hero" style="border-top:0">
   <div class="wrap">
     <div>
-      <p class="status"><i></i>AKINSOFT Ar-Ge, Konya</p>
+      <p class="status"><i></i>İş ve sistem analizi</p>
       <h1>İbrahim Olcayto<span>Akbudak</span></h1>
       <p class="role">İş Geliştirme Analisti</p>
       <p class="lede">ERP sistemleri, e-Dönüşüm ve GİB entegrasyonu üzerine çalışıyorum. İş süreçlerini teknik gereksinimlere, teknik kısıtları da iş kararlarına çeviren bir analistim.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:akbudakolcaytoibrahim@gmail.com">E-posta gönder</a>
+        <a class="btn" href="#deneyim">Deneyimim</a>
         <a class="btn" href="#analizler">20 analiz projesi</a>
       </div>
     </div>
 
     <figure class="doc" aria-label="Profil özeti, e-belge biçiminde">
       <div class="doc-head"><span>profil.xml</span><span>UTF-8</span></div>
-<pre><span class="ln" style="animation-delay:.2s"><span class="c">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><span class="ln" style="animation-delay:.45s"><span class="t">&lt;Profil</span> <span class="a">tip</span>=<span class="a">"Analist"</span><span class="t">&gt;</span></span><span class="ln" style="animation-delay:.7s">  <span class="t">&lt;Ad&gt;</span>İbrahim Olcayto Akbudak<span class="t">&lt;/Ad&gt;</span></span><span class="ln" style="animation-delay:.95s">  <span class="t">&lt;Unvan&gt;</span>İş Geliştirme Analisti<span class="t">&lt;/Unvan&gt;</span></span><span class="ln" style="animation-delay:1.2s">  <span class="t">&lt;Kurum&gt;</span>AKINSOFT Ar-Ge<span class="t">&lt;/Kurum&gt;</span></span><span class="ln" style="animation-delay:1.45s">  <span class="t">&lt;Alan&gt;</span>ERP, e-Dönüşüm, GİB<span class="t">&lt;/Alan&gt;</span></span><span class="ln" style="animation-delay:1.7s">  <span class="t">&lt;Standart&gt;</span>UBL-TR, PEPPOL<span class="t">&lt;/Standart&gt;</span></span><span class="ln" style="animation-delay:1.95s">  <span class="t">&lt;Deneyim</span> <span class="a">birim</span>=<span class="a">"yıl"</span><span class="t">&gt;</span>4+<span class="t">&lt;/Deneyim&gt;</span></span><span class="ln" style="animation-delay:2.2s">  <span class="t">&lt;Durum&gt;</span>Aktif<span class="t">&lt;/Durum&gt;</span></span><span class="ln" style="animation-delay:2.45s"><span class="t">&lt;/Profil&gt;</span></span></pre>
-      <figcaption class="doc-foot"><i></i>Şema doğrulandı, belge geçerli</figcaption>
+<pre><span class="ln" style="animation-delay:.2s"><span class="c">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><span class="ln" style="animation-delay:.45s"><span class="t">&lt;Profil</span> <span class="a">tip</span>=<span class="a">"Analist"</span><span class="t">&gt;</span></span><span class="ln" style="animation-delay:.7s">  <span class="t">&lt;Ad&gt;</span>İbrahim Olcayto Akbudak<span class="t">&lt;/Ad&gt;</span></span><span class="ln" style="animation-delay:.95s">  <span class="t">&lt;Unvan&gt;</span>İş Geliştirme Analisti<span class="t">&lt;/Unvan&gt;</span></span><span class="ln" style="animation-delay:1.2s">  <span class="t">&lt;Odak&gt;</span>İş ve sistem analizi<span class="t">&lt;/Odak&gt;</span></span><span class="ln" style="animation-delay:1.45s">  <span class="t">&lt;Alan&gt;</span>ERP, e-Dönüşüm, GİB<span class="t">&lt;/Alan&gt;</span></span><span class="ln" style="animation-delay:1.7s">  <span class="t">&lt;Standart&gt;</span>UBL-TR, PEPPOL<span class="t">&lt;/Standart&gt;</span></span><span class="ln" style="animation-delay:1.95s">  <span class="t">&lt;Deneyim</span> <span class="a">birim</span>=<span class="a">"yıl"</span><span class="t">&gt;</span>4+<span class="t">&lt;/Deneyim&gt;</span></span><span class="ln" style="animation-delay:2.2s">  <span class="t">&lt;Durum&gt;</span>Aktif<span class="t">&lt;/Durum&gt;</span></span><span class="ln" style="animation-delay:2.45s"><span class="t">&lt;/Profil&gt;</span></span></pre>
+      <figcaption class="doc-foot"><i></i>İhtiyacı anla · Veriyle doğrula</figcaption>
     </figure>
   </div>
 </section>
@@ -332,19 +345,19 @@ html.js .reveal.in-view{opacity:1;transform:none}
       <li class="job now">
         <div class="when">Şubat 2026 – Günümüz</div>
         <h3>İş Geliştirme Analisti</h3>
-        <p class="where">AKINSOFT, Ar-Ge Departmanı, Konya</p>
+        <p class="where">AKINSOFT · Ar-Ge</p>
         <ul>
-          <li>WOLVOX POS ürünlerinin ÖKC entegrasyon süreçlerinde analiz ve dokümantasyon</li>
-          <li>Gereksinim analizi, test senaryoları ve ürün geliştirme ekipleriyle koordinasyon</li>
+          <li>İş gereksinimlerinin analizi, süreçlerin dokümantasyonu ve test çalışmalarına katkı</li>
+          <li>Ürün geliştirme süreçlerinde ilgili ekiplerle koordinasyon ve bulguların takibi</li>
         </ul>
       </li>
       <li class="job">
         <div class="when">Temmuz 2025 – Ocak 2026</div>
-        <h3>Baş Analist, Yönetim ve Sektör Danışmanlığı</h3>
+        <h3>İş ve Sistem Analizi</h3>
         <p class="where">Nox Yazılım, 7C ve 4C Teknolojileri (eş zamanlı, sözleşmeli)</p>
         <ul>
-          <li>Üç firmada GİB, ERP ve e-Dönüşüm süreç yönetiminde tam yetki</li>
-          <li>Her firmada 10–15 kişilik ekiplerin yönetimi</li>
+          <li>ERP ve e-Dönüşüm alanındaki süreçlerin analizi ve takibinde görev aldım.</li>
+          <li>Paydaş ihtiyaçlarının netleştirilmesi, teknik ekiplerle koordinasyon ve çözüm süreçlerinin takibine katkı sundum.</li>
         </ul>
       </li>
       <li class="job">
@@ -364,7 +377,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
   <div class="wrap split">
     <div>
       <h2>Kişisel projeler</h2>
-      <p class="side-note">İş dışında, merak ettiğim problemleri çözmek için geliştirdiklerim.</p>
+      <p class="side-note">Kişisel çalışmalarım. Yeni vaka çalışmalarını tamamlandıkça ekliyorum.</p>
     </div>
     <div>
     <div class="projects">
@@ -380,23 +393,32 @@ html.js .reveal.in-view{opacity:1;transform:none}
       </article>
       <article class="proj">
         <h3>IsPAnom</h3>
-        <p class="sub">Görev ve proje yönetim aracı</p>
+        <p class="sub">Görev ve proje yönetim aracı · <a href="https://github.com/olcayto-akbudak/IsPAnom" target="_blank" rel="noopener noreferrer">Depo ↗</a></p>
         <p>Kanban panosu ve Gantt şemasıyla kişisel iş takibi. GitHub Pages üzerinde yayında.</p>
         <ul class="stack"><li>JavaScript</li><li>GitHub Pages</li></ul>
-      </article>
-      <article class="proj">
-        <h3>BIST araştırma panosu</h3>
-        <p class="sub">Otomatik piyasa özeti, tasarım</p>
-        <p>Deterministik veri kaynaklarından beslenen, kaynak doğrulaması zorunlu LLM özetleriyle çalışan otomatik bir araştırma hattı.</p>
-        <ul class="stack"><li>GitHub Actions</li><li>LLM</li><li>GitHub Pages</li></ul>
       </article>
     </div>
     <div class="github-section">
       <div class="github-head">
-        <h3>GitHub projelerim</h3>
+        <h3>Öne çıkan GitHub depolarım</h3>
         <a href="https://github.com/olcayto-akbudak?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub profilimde tümünü gör ↗</a>
       </div>
-      <p class="github-status" id="github-status" role="status" aria-live="polite">Açık GitHub depoları yükleniyor…</p>
+      <p class="github-status">Seçilmiş açık depolar · yeni çalışmalar tamamlandıkça güncellenir.</p>
+      <div class="github-grid" id="curated-repos">
+<!-- REPOS_START -->
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/IsPAnom" target="_blank" rel="noopener noreferrer">IsPAnom</a></h4><p>Görev ve proje yönetimi</p><div class="repo-meta"><span>HTML</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/ecommerce-subscription-churn-sql" target="_blank" rel="noopener noreferrer">ecommerce subscription churn sql</a></h4><p>SQL · müşteri kaybı analizi</p><div class="repo-meta"><span>GitHub</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/amazon-sql-reporting" target="_blank" rel="noopener noreferrer">amazon sql reporting</a></h4><p>SQL · satış raporlaması</p><div class="repo-meta"><span>GitHub</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/retail-sales-sql-analysis" target="_blank" rel="noopener noreferrer">retail sales sql analysis</a></h4><p>SQL · perakende analizi</p><div class="repo-meta"><span>GitHub</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/data-cleaning-pipeline-pandas" target="_blank" rel="noopener noreferrer">data cleaning pipeline pandas</a></h4><p>Python · veri temizleme</p><div class="repo-meta"><span>Python</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/AI-Assisted-Fraud-Detection-System" target="_blank" rel="noopener noreferrer">AI Assisted Fraud Detection System</a></h4><p>Yapay zekâ destekli anomali incelemesi</p><div class="repo-meta"><span>Python</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/AI_Mergen_Trading_System_V1.0" target="_blank" rel="noopener noreferrer">AI Mergen Trading System V1.0</a></h4><div class="repo-meta"><span>Python</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/feature-engineering-fundamentals" target="_blank" rel="noopener noreferrer">feature engineering fundamentals</a></h4><div class="repo-meta"><span>Python</span></div></article>
+<article class="repo"><h4><a href="https://github.com/olcayto-akbudak/Akilli-Finansal-Analiz-Tahmin-Sistemi" target="_blank" rel="noopener noreferrer">Akilli Finansal Analiz Tahmin Sistemi</a></h4><div class="repo-meta"><span>Python</span></div></article>
+<!-- REPOS_END -->
+      </div>
+      <div class="github-head" style="margin-top:34px"><h3>Tüm açık depolarım</h3></div>
+      <p class="github-status" id="github-status" role="status" aria-live="polite">GitHub depoları yükleniyor…</p>
       <div class="github-grid" id="github-repos"></div>
     </div>
     </div>
@@ -566,12 +588,13 @@ html.js .reveal.in-view{opacity:1;transform:none}
 
 <section id="iletisim" class="contact tint">
   <div class="wrap">
-    <h2>ERP ve e-Dönüşüm üzerine konuşmak isterseniz yazın.</h2>
-    <p>E-posta ile ulaşabilirsiniz; genellikle bir iş günü içinde dönüş yapıyorum.</p>
+    <h2>İş ve sistem analizi üzerine iletişime geçin.</h2>
+    <p>E-posta gönderebilir veya GitHub çalışmalarımı inceleyebilirsiniz.</p>
     <a class="mail-big" href="mailto:akbudakolcaytoibrahim@gmail.com">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
       akbudakolcaytoibrahim@gmail.com
     </a>
+    <div class="contact-links"><a href="https://github.com/olcayto-akbudak" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
   </div>
 </section>
 </main>
@@ -579,8 +602,7 @@ html.js .reveal.in-view{opacity:1;transform:none}
 <footer>
   <div class="wrap">© <span id="y">2026</span> İbrahim Olcayto Akbudak</div>
 </footer>
-<script>
-document.getElementById('y').textContent = new Date().getFullYear();
+<script>document.getElementById('y').textContent=new Date().getFullYear();
 (async function loadGitHubProjects() {
   const user = 'olcayto-akbudak';
   const list = document.getElementById('github-repos');
@@ -630,7 +652,6 @@ document.getElementById('y').textContent = new Date().getFullYear();
     console.warn('GitHub projeleri yüklenemedi:', error);
   }
 })();
-
 // Reveal visible sections without hiding content when JavaScript is unavailable.
 if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window) {
   document.documentElement.classList.add('js');
