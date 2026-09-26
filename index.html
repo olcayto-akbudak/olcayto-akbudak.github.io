@@ -200,9 +200,40 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   .lang{grid-template-columns:88px 1fr 50px}
   .brand span{display:none}
 }
+
+/* portfolio refinements */
+[hidden]{display:none!important}
+.scroll-progress{position:fixed;inset:0 auto auto 0;width:100%;height:3px;z-index:30;pointer-events:none;background:var(--accent);transform:scaleX(0);transform-origin:left center}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;z-index:-1;right:-12%;top:-45%;width:min(750px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 11%,transparent),transparent 68%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;z-index:-2;opacity:.28;pointer-events:none;background-image:radial-gradient(var(--line) .7px,transparent .7px);background-size:26px 26px;mask-image:linear-gradient(90deg,transparent,black)}
+.brand svg{transition:transform .5s cubic-bezier(.2,.8,.2,1)}.brand:hover svg{transform:rotate(-13deg)}
+.btn,.proj,.repo,.case-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.proj:hover,.repo:hover,.case-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 18px 36px rgba(0,0,0,.12)}
+.status i{animation:glow 3s ease-in-out infinite alternate}@keyframes glow{to{box-shadow:0 0 20px 6px color-mix(in srgb,var(--accent) 40%,transparent)}}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
+html.js .reveal.in-view{opacity:1;transform:none}
+.case-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0}
+.case-tools input,.case-tools select{appearance:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit;font-size:15px;min-height:48px}
+.case-tools input{flex:1 1 240px}.case-tools select{flex:0 1 210px}
+.case-tools input:focus,.case-tools select:focus{outline:2px solid var(--accent);outline-offset:2px}
+.case-count{color:var(--muted);font-size:14px;margin:0 0 16px}
+.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.case-card{display:flex;flex-direction:column;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.case-card .case-tag{font:12px var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin:0 0 14px}
+.case-card h3{font-family:var(--display);line-height:1.2;font-size:22px;margin:0 0 10px}
+.case-card p{color:var(--muted);font-size:15px;margin:0 0 20px}
+.case-card .case-bottom{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.case-card a{font-size:14px;font-weight:600;text-decoration:none}.case-card a:hover{text-decoration:underline}
+.case-intro{color:var(--muted);max-width:72ch;margin:18px 0 0}
+@media(max-width:900px){.case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar nav a.analysis-nav{display:inline}}
+@media(max-width:620px){.case-grid{grid-template-columns:1fr}.topbar nav{gap:12px}.topbar nav a.analysis-nav{font-size:13px}.topbar nav .mail{padding:7px 9px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
 <header class="topbar">
   <div class="wrap">
@@ -214,6 +245,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       <a href="#hakkimda">Hakkımda</a>
       <a href="#deneyim">Deneyim</a>
       <a href="#projeler">Projeler</a>
+      <a class="analysis-nav" href="#analizler">Analizler</a>
       <a class="mail" href="#iletisim">İletişim</a>
     </nav>
   </div>
@@ -229,7 +261,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       <p class="lede">ERP sistemleri, e-Dönüşüm ve GİB entegrasyonu üzerine çalışıyorum. İş süreçlerini teknik gereksinimlere, teknik kısıtları da iş kararlarına çeviren bir analistim.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:akbudakolcaytoibrahim@gmail.com">E-posta gönder</a>
-        <a class="btn" href="#deneyim">Deneyimim</a>
+        <a class="btn" href="#analizler">20 analiz projesi</a>
       </div>
     </div>
 
@@ -371,6 +403,139 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   </div>
 </section>
 
+<section id="analizler" aria-labelledby="analysis-title">
+  <div class="wrap">
+    <p class="status">Uygulamalı analiz portföyü</p>
+    <h2 id="analysis-title">20 çalıştırılabilir analiz çalışması</h2>
+    <p class="case-intro">Entegrasyon, ERP, operasyon, müşteri ve finans problemlerini SQL ile inceledim. Her çalışmada sentetik veri, sorgu, Python çalıştırma dosyası ve üretilmiş sonuç raporu var. Bunlar gerçek kurum sonuçları olarak sunulmaz.</p>
+    <div class="case-tools" role="search" aria-label="Analiz projelerinde ara">
+      <input type="search" id="case-search" placeholder="Proje veya problem ara…" aria-label="Analiz projelerinde ara">
+      <select id="case-category" aria-label="Analiz alanı"><option value="">Tüm alanlar</option><option>Entegrasyon</option><option>Operasyon</option><option>Müşteri ve pazar</option><option>Veri ve finans</option></select>
+    </div>
+    <p class="case-count" id="case-count" role="status" aria-live="polite">20 çalışma gösteriliyor</p>
+    <div class="case-grid" id="case-grid"><article class="case-card reveal" data-category="Entegrasyon" data-search="e-fatura işlem sla analizi entegratör işlem süreleri hangi belge durumlarında uzuyor? entegrasyon">
+<p class="case-tag">Entegrasyon · SENTETİK VERİ</p>
+<h3>e-Fatura işlem SLA analizi</h3>
+<p>Entegratör işlem süreleri hangi belge durumlarında uzuyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#efatura-sla">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Entegrasyon" data-search="e-i̇rsaliye gecikme analizi hangi sevkiyat bölgelerinde belge gecikmesi yoğunlaşıyor? entegrasyon">
+<p class="case-tag">Entegrasyon · SENTETİK VERİ</p>
+<h3>e-İrsaliye gecikme analizi</h3>
+<p>Hangi sevkiyat bölgelerinde belge gecikmesi yoğunlaşıyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#eirsaliye-gecikme">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Entegrasyon" data-search="api hata pareto analizi hata yükünün çoğunu hangi uç noktalar oluşturuyor? entegrasyon">
+<p class="case-tag">Entegrasyon · SENTETİK VERİ</p>
+<h3>API hata Pareto analizi</h3>
+<p>Hata yükünün çoğunu hangi uç noktalar oluşturuyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#api-hata-pareto">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Operasyon" data-search="erp stok abc analizi hangi ürünler stok değerinin büyük kısmını taşıyor? operasyon">
+<p class="case-tag">Operasyon · SENTETİK VERİ</p>
+<h3>ERP stok ABC analizi</h3>
+<p>Hangi ürünler stok değerinin büyük kısmını taşıyor?</p>
+<div class="case-bottom"><span>120 kayıt · SQL + Python</span><a href="analizler.html#stok-abc">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Operasyon" data-search="satış kanalı kârlılık analizi komisyon ve iadeler sonrasında hangi kanal daha kârlı? operasyon">
+<p class="case-tag">Operasyon · SENTETİK VERİ</p>
+<h3>Satış kanalı kârlılık analizi</h3>
+<p>Komisyon ve iadeler sonrasında hangi kanal daha kârlı?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#satis-kanal-karliligi">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Operasyon" data-search="sipariş hazırlama darboğazı sipariş hazırlamada en fazla gecikme hangi vardiyada? operasyon">
+<p class="case-tag">Operasyon · SENTETİK VERİ</p>
+<h3>Sipariş hazırlama darboğazı</h3>
+<p>Sipariş hazırlamada en fazla gecikme hangi vardiyada?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#siparis-fulfillment">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Operasyon" data-search="pazaryeri iade nedenleri hangi kategori ve nedenlerde iade oranı artıyor? operasyon">
+<p class="case-tag">Operasyon · SENTETİK VERİ</p>
+<h3>Pazaryeri iade nedenleri</h3>
+<p>Hangi kategori ve nedenlerde iade oranı artıyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#pazaryeri-iade">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Operasyon" data-search="ödeme mutabakat farkları erp tutarı ile ödeme sağlayıcı tutarı nerede ayrışıyor? operasyon">
+<p class="case-tag">Operasyon · SENTETİK VERİ</p>
+<h3>Ödeme mutabakat farkları</h3>
+<p>ERP tutarı ile ödeme sağlayıcı tutarı nerede ayrışıyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#odeme-mutabakat">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Müşteri ve pazar" data-search="müşteri kayıp riski son kullanım süresi ve şikâyet ile hangi segment riskli? müşteri ve pazar">
+<p class="case-tag">Müşteri ve pazar · SENTETİK VERİ</p>
+<h3>Müşteri kayıp riski</h3>
+<p>Son kullanım süresi ve şikâyet ile hangi segment riskli?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#musteri-churn">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Müşteri ve pazar" data-search="destek talebi önceliklendirme hangi talep türü açık bilet yükünü büyütüyor? müşteri ve pazar">
+<p class="case-tag">Müşteri ve pazar · SENTETİK VERİ</p>
+<h3>Destek talebi önceliklendirme</h3>
+<p>Hangi talep türü açık bilet yükünü büyütüyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#destek-oncelik">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Müşteri ve pazar" data-search="sepet birliktelik analizi ürün çiftlerinin birlikte satın alınma sıklığı nedir? müşteri ve pazar">
+<p class="case-tag">Müşteri ve pazar · SENTETİK VERİ</p>
+<h3>Sepet birliktelik analizi</h3>
+<p>Ürün çiftlerinin birlikte satın alınma sıklığı nedir?</p>
+<div class="case-bottom"><span>193 kayıt · SQL + Python</span><a href="analizler.html#sepet-birliktelik">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Müşteri ve pazar" data-search="kampanya a/b testi deneme gruplarının dönüşüm oranları nasıl değişiyor? müşteri ve pazar">
+<p class="case-tag">Müşteri ve pazar · SENTETİK VERİ</p>
+<h3>Kampanya A/B testi</h3>
+<p>Deneme gruplarının dönüşüm oranları nasıl değişiyor?</p>
+<div class="case-bottom"><span>400 kayıt · SQL + Python</span><a href="analizler.html#kampanya-ab">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Müşteri ve pazar" data-search="talep eğilimi ve hareketli ortalama son üç ay ortalamasına göre ürün grubu talebi nasıl seyreder? müşteri ve pazar">
+<p class="case-tag">Müşteri ve pazar · SENTETİK VERİ</p>
+<h3>Talep eğilimi ve hareketli ortalama</h3>
+<p>Son üç ay ortalamasına göre ürün grubu talebi nasıl seyreder?</p>
+<div class="case-bottom"><span>36 kayıt · SQL + Python</span><a href="analizler.html#talep-tahmini">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Müşteri ve pazar" data-search="fiyat ve talep ilişkisi fiyat aralıklarında satış miktarı nasıl değişiyor? müşteri ve pazar">
+<p class="case-tag">Müşteri ve pazar · SENTETİK VERİ</p>
+<h3>Fiyat ve talep ilişkisi</h3>
+<p>Fiyat aralıklarında satış miktarı nasıl değişiyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#fiyat-talep">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Veri ve finans" data-search="alacak yaşlandırma analizi vadesi geçen alacak hangi yaş aralıklarında birikiyor? veri ve finans">
+<p class="case-tag">Veri ve finans · SENTETİK VERİ</p>
+<h3>Alacak yaşlandırma analizi</h3>
+<p>Vadesi geçen alacak hangi yaş aralıklarında birikiyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#alacak-yaslandirma">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Veri ve finans" data-search="müşteri ana veri kalitesi zorunlu alanların eksik ve mükerrer kayıt oranı nedir? veri ve finans">
+<p class="case-tag">Veri ve finans · SENTETİK VERİ</p>
+<h3>Müşteri ana veri kalitesi</h3>
+<p>Zorunlu alanların eksik ve mükerrer kayıt oranı nedir?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#veri-kalitesi">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Veri ve finans" data-search="tedarikçi zamanında teslim teslim performansı hangi tedarikçide düşüyor? veri ve finans">
+<p class="case-tag">Veri ve finans · SENTETİK VERİ</p>
+<h3>Tedarikçi zamanında teslim</h3>
+<p>Teslim performansı hangi tedarikçide düşüyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#tedarikci-otd">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Veri ve finans" data-search="stok devir göstergesi hangi kategoride stok hareketi daha yavaş? veri ve finans">
+<p class="case-tag">Veri ve finans · SENTETİK VERİ</p>
+<h3>Stok devir göstergesi</h3>
+<p>Hangi kategoride stok hareketi daha yavaş?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#stok-devir">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Veri ve finans" data-search="i̇şlem tutarı aykırı değer üç sigma eşiğini aşan işlemler hangi kanalda? veri ve finans">
+<p class="case-tag">Veri ve finans · SENTETİK VERİ</p>
+<h3>İşlem tutarı aykırı değer</h3>
+<p>Üç sigma eşiğini aşan işlemler hangi kanalda?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#islem-anomali">Analiz raporu ↗</a></div>
+</article>
+<article class="case-card reveal" data-category="Veri ve finans" data-search="onay süreci darboğazı i̇ş akışının hangi aşaması toplam sürenin çoğunu tüketiyor? veri ve finans">
+<p class="case-tag">Veri ve finans · SENTETİK VERİ</p>
+<h3>Onay süreci darboğazı</h3>
+<p>İş akışının hangi aşaması toplam sürenin çoğunu tüketiyor?</p>
+<div class="case-bottom"><span>160 kayıt · SQL + Python</span><a href="analizler.html#surec-darbogaz">Analiz raporu ↗</a></div>
+</article></div>
+  </div>
+</section>
+
 <section id="egitim">
   <div class="wrap split">
     <div>
@@ -465,6 +630,47 @@ document.getElementById('y').textContent = new Date().getFullYear();
     console.warn('GitHub projeleri yüklenemedi:', error);
   }
 })();
+
+// Reveal visible sections without hiding content when JavaScript is unavailable.
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('js');
+  const reveal = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      entry.target.classList.add('in-view'); observer.unobserve(entry.target);
+    }
+  }, { threshold: .08, rootMargin: '0px 0px 32px 0px' });
+  document.querySelectorAll('.case-card, .proj, .skill, .job').forEach(element => {
+    element.classList.add('reveal'); reveal.observe(element);
+  });
+}
+const cards = [...document.querySelectorAll('.case-card')];
+const search = document.getElementById('case-search');
+const category = document.getElementById('case-category');
+function filterCases() {
+  const fold = value => value.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('tr-TR');
+  const query = fold(search.value.trim());
+  let visible = 0;
+  cards.forEach(card => {
+    const matches = (!query || fold(card.dataset.search).includes(query)) &&
+      (!category.value || card.dataset.category === category.value);
+    card.hidden = !matches;
+    if (matches) visible++;
+  });
+  document.getElementById('case-count').textContent = `${visible} / ${cards.length} çalışma gösteriliyor`;
+}
+search.addEventListener('input', filterCases);
+category.addEventListener('change', filterCases);
+const progress = document.getElementById('scroll-progress');
+let scheduled = false;
+function updateProgress() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+  scheduled = false;
+}
+window.addEventListener('scroll', () => {
+  if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); }
+}, { passive:true });
+updateProgress();
 </script>
 </body>
 </html>

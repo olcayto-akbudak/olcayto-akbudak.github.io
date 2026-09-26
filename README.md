@@ -1,18 +1,29 @@
-# İbrahim Olcayto Akbudak — portföy
+# İbrahim Olcayto Akbudak | İş Geliştirme Analisti
 
-Tek dosyalık, statik portföy sitesi. GitHub Pages üzerinde çalışır; kurulum veya derleme gerektirmez.
+GitHub Pages portföyü ve **20 tamamlanmış, yeniden çalıştırılabilir demo analiz projesi**. Veri kümeleri tamamen sentetiktir; gerçek şirket, müşteri veya GİB kayıtlarını temsil etmez.
 
-## Yayımlama
+## Site
 
-1. GitHub'da herkese açık bir `olcayto-akbudak.github.io` deposu oluşturun (kişisel alan adında yayın için). Başka bir ad kullanırsanız adres `https://olcayto-akbudak.github.io/DEPO-ADI/` olur.
-2. Bu paketteki `index.html` dosyasını deponun kök dizinine ekleyip `main` dalına gönderin.
-3. Depoda **Settings → Pages → Build and deployment → Deploy from a branch** seçin; dal olarak `main`, klasör olarak `/ (root)` ayarlayıp kaydedin.
-4. Pages yayımlama tamamlanınca siteyi belirtilen adreste açın.
+`index.html` ana sayfadır. `analizler.html` 20 projenin sonuçlarını ve sorgularını gezilebilir tek sayfada sunar. `analizler-kaynak-kod.zip` bütün veri ve çalıştırılabilir proje klasörlerini içerir; `analizler/<proje>/index.html` adresleri tam kaynak dağıtımında ayrıca çalışır. Filtrelenebilir proje kartları ana sayfada bulunur. Animasyonlar azaltılmış hareket sistem ayarına uyar.
 
-## GitHub projelerinin güncellenmesi
+GitHub açık depoları sayfa açıldığında herkese açık API'den çekilir. API geçici olarak çalışmazsa profil bağlantısı görünür kalır. Seçili proje anlatımları ve 20 demo analiz, statik site içeriğidir ve kaynak güncellemesiyle değişir.
 
-`index.html`, ziyaret sırasında `https://api.github.com/users/olcayto-akbudak/repos` adresinden açık depoları sayfalayarak okur. Yeni bir **public** depo oluşturduğunuzda veya mevcut depoyu güncellediğinizde sayfa yenilendiği anda proje listesine yansır. Manuel HTML düzenlemesi ve Actions iş akışı gerekmez. GitHub API erişilemezse profil bağlantısı kullanılabilir; anonim API isteklerinin hız sınırı vardır. Gizli depolar listelenmez. Üstteki seçili proje anlatımları editoryaldir ve yalnızca `index.html` düzenlenince değişir.
+## Tekrar üretme
 
-## İçerik düzenleme
+Python 3 ve SQLite (Python standart kitaplığı) yeterlidir. Tek bir projeyi çalıştırmak için:
 
-Metinler, seçili proje kartları, iletişim ve stiller `index.html` içindedir. Yeni biyografi veya deneyim bilgileri için bu dosyayı düzenleyip tekrar gönderin. GitHub kullanıcı adı değişirse `loadGitHubProjects` içindeki `user` değişkenini ve profil bağlantısını da güncelleyin.
+```bash
+python analizler/efatura-sla/run.py
+```
+
+Tüm sentetik veri kümeleri, raporlar ve proje dosyaları aynı sabit tohumla tekrar üretilir:
+
+```bash
+python build_analyses.py
+```
+
+Her proje klasörü `data.csv`, `analysis.sql`, `run.py`, `results.json`, `index.html` ve `README.md` içerir. `run.py` çıktısı `results.json` ile birebir karşılaştırılabilir. Analizler portföy ve öğrenme amaçlıdır; gerçek operasyonel bulgu, mevzuat yorumu veya yatırım kararı olarak kullanılmaz.
+
+## GitHub Pages
+
+Bu depo `olcayto-akbudak.github.io` olarak adlandırıldığında **Settings → Pages → Deploy from a branch → main → /(root)** seçimiyle yayımlanır. `index.html` kök dizinde bulunmalıdır. Site adresi `https://olcayto-akbudak.github.io/` olur.
