@@ -1,0 +1,239 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08151F">
+<title>UBL-TR e-Fatura XML Şema Hataları: Teşhis Sırası ve Örnekler | İbrahim Olcayto Akbudak</title><meta name="description" content="UBL-TR e-Fatura XML hatalarını XML ayrıştırma, XSD, şematron ve ERP iş kuralları düzeyinde ayırmak için örnekli analiz ve kontrol sırası."><link rel="canonical" href="https://olcayto-akbudak.github.io/notlar/ubl-tr-sema-hatalari.html">
+<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR"><meta property="og:title" content="UBL-TR e-Fatura XML Şema Hataları: Teşhis Sırası ve Örnekler"><meta property="og:description" content="UBL-TR e-Fatura XML hatalarını XML ayrıştırma, XSD, şematron ve ERP iş kuralları düzeyinde ayırmak için örnekli analiz ve kontrol sırası."><meta property="og:url" content="https://olcayto-akbudak.github.io/notlar/ubl-tr-sema-hatalari.html"><meta property="og:image" content="https://olcayto-akbudak.github.io/og.png"><meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"UBL-TR e-Fatura XML Şema Hataları: Teşhis Sırası ve Örnekler","description":"UBL-TR e-Fatura XML hatalarını XML ayrıştırma, XSD, şematron ve ERP iş kuralları düzeyinde ayırmak için örnekli analiz ve kontrol sırası.","inLanguage":"tr-TR","datePublished":"2026-09-27","dateModified":"2026-09-27","author":{"@type":"Person","name":"İbrahim Olcayto Akbudak","url":"https://olcayto-akbudak.github.io/","@id":"https://olcayto-akbudak.github.io/#person"},"mainEntityOfPage":"https://olcayto-akbudak.github.io/notlar/ubl-tr-sema-hatalari.html"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+:root{
+  color-scheme:dark;
+  --bg:#08151F;
+  --bg-2:#0C1D2A;
+  --surface:#0F2433;
+  --line:#21394A;
+  --ink:#ECF4F5;
+  --muted:#98ADB8;
+  --accent:#6FDCC0;
+  --accent-ink:#06231D;
+  --amber:#E9B45A;
+  --code-bg:#061019;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"IBM Plex Sans", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    color-scheme:light;
+    --bg:#F2F6F7;
+    --bg-2:#E7EEF0;
+    --surface:#FFFFFF;
+    --line:#D2DDE2;
+    --ink:#122330;
+    --muted:#526471;
+    --accent:#0B6B5F;
+    --accent-ink:#FFFFFF;
+    --amber:#A86D08;
+    --code-bg:#0E2230;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+h1,h2,h3,p{margin-top:0}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:700;font-size:17px}
+.brand svg{width:28px;height:28px}
+.topbar nav{display:flex;align-items:center;gap:26px}
+.topbar nav a{color:var(--muted);text-decoration:none;font-size:15px}
+.topbar nav a:hover{color:var(--ink)}
+.topbar nav .mail{color:var(--ink);border:1px solid var(--line);padding:8px 14px;border-radius:8px}
+.topbar nav .mail:hover{border-color:var(--accent)}
+.topbar nav .language{border:1px solid var(--line);padding:7px 10px;border-radius:8px;color:var(--ink)}
+.contact-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.contact-links a{font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:9px 16px}
+.contact-links a:hover{border-color:var(--accent)}
+
+/* hero */
+.hero{padding:96px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:15px;margin-bottom:26px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,6.6vw,84px);line-height:.96;letter-spacing:-.035em;margin:0 0 26px}
+.hero h1 span{display:block;color:var(--muted);font-weight:500}
+.role{font-size:20px;font-weight:500;margin:0 0 12px}
+.lede{color:var(--muted);max-width:33em;margin:0 0 32px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--line);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* xml document */
+.doc{margin:0;background:var(--code-bg);color:#D4E4E7;border:1px solid #1E3A4A;border-radius:14px;font-family:var(--mono);font-size:14px;line-height:1.75;overflow:hidden;box-shadow:18px 18px 0 color-mix(in srgb,var(--accent) 12%,transparent)}
+.doc-head{display:flex;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.07);color:#6C8893;font-size:12.5px}
+.doc pre{margin:0;padding:18px 20px 8px;white-space:pre-wrap;word-break:break-word}
+.t{color:#7FD6C4}.a{color:#E9B45A}.c{color:#627E89}
+.doc .ln{display:block}
+.doc-foot{padding:10px 20px 16px;font-size:13px;color:#9ADFC9;display:flex;align-items:center;gap:8px}
+.doc-foot i{width:8px;height:8px;border-radius:50%;background:#58C79B}
+@media (prefers-reduced-motion: no-preference){
+  .doc .ln{opacity:0;animation:typein .35s ease forwards}
+  .doc-foot{opacity:0;animation:typein .4s ease forwards;animation-delay:2.9s}
+  @keyframes typein{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:none}}
+}
+
+/* sections */
+section{padding:88px 0;border-top:1px solid var(--line)}
+section.tint{background:var(--bg-2)}
+.split{display:grid;grid-template-columns:270px 1fr;gap:48px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,40px);letter-spacing:-.025em;line-height:1.08;margin:0}
+.side-note{color:var(--muted);font-size:15px;margin-top:12px}
+.prose p{margin:0 0 16px;max-width:38em}
+.prose p:last-child{margin:0}
+
+/* approach (sequence) */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;counter-reset:s}
+.steps li{padding:26px 22px;background:var(--surface);counter-increment:s}
+.steps li+li{border-left:1px solid var(--line)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font-family:var(--mono);font-size:13px;margin-bottom:18px}
+.steps h3{font-size:18px;font-weight:600;margin:0 0 6px}
+.steps p{margin:0;color:var(--muted);font-size:15px}
+
+/* expertise */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.skill{padding:20px 0;border-bottom:1px solid var(--line)}
+.skill h3{font-size:18px;font-weight:600;margin:0 0 4px}
+.skill p{margin:0;color:var(--muted);font-size:15.5px}
+.support{margin:26px 0 0;color:var(--muted);font-size:15px}
+.support b{color:var(--ink);font-weight:500}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.job{position:relative;padding:0 0 40px 42px}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.job.now::before{background:var(--accent);box-shadow:0 0 12px color-mix(in srgb,var(--accent) 60%,transparent)}
+.when{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font-size:20px;font-weight:600;margin:2px 0}
+.where{color:var(--accent);font-weight:500;margin:0 0 10px;font-size:15.5px}
+.job ul{margin:0;padding-left:18px;color:var(--muted);font-size:15.5px}
+.job li{margin:3px 0}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.proj.lead{grid-column:1 / -1;border-top:3px solid var(--accent)}
+.proj h3{font-family:var(--display);font-size:23px;font-weight:700;letter-spacing:-.015em;margin:0 0 2px}
+.proj .sub{color:var(--muted);font-size:14px;margin:0 0 14px}
+.proj p{margin:0 0 14px;font-size:15.5px}
+.finding{background:color-mix(in srgb,var(--accent) 10%,transparent);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;font-size:15px;margin:0 0 16px}
+.finding b{display:block;font-weight:600;margin-bottom:2px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.stack li{font-size:13px;padding:4px 10px;border-radius:6px;background:var(--bg-2);color:var(--muted)}
+.github-section{border-top:1px solid var(--line);padding-top:34px;margin-top:42px}
+.github-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.github-head h3{font-family:var(--display);font-size:25px;margin:0}
+.github-head a{font-size:14px}
+.github-status{color:var(--muted);font-size:15px;margin:0 0 16px}
+.github-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.repo{display:flex;flex-direction:column;gap:12px;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);min-width:0}
+.repo h4{font-family:var(--display);font-size:19px;line-height:1.25;overflow-wrap:anywhere;margin:0}
+.repo h4 a{color:var(--ink);text-decoration:none}.repo h4 a:hover{color:var(--accent)}
+.repo p{margin:0;color:var(--muted);font-size:14.5px;overflow-wrap:anywhere}
+.repo-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;color:var(--muted);font-size:13px}
+.repo-meta span{border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.degree h3{font-size:20px;font-weight:600;margin:0}
+.degree p{margin:4px 0 0;color:var(--muted)}
+.langs{margin-top:30px}
+.lang{display:grid;grid-template-columns:110px 1fr 60px;align-items:center;gap:12px;margin:11px 0;font-size:15.5px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.lvl{color:var(--muted);font-size:14px;text-align:right}
+.certs{list-style:none;margin:0;padding:0}
+.certs li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.certs li:first-child{padding-top:0}
+.certs b{display:block;font-weight:600}
+.certs span{color:var(--muted)}
+
+/* contact */
+.contact{text-align:left}
+.contact h2{font-size:clamp(34px,5vw,58px);max-width:13em;letter-spacing:-.035em}
+.contact p{color:var(--muted);max-width:32em;margin:18px 0 32px}
+.mail-big{display:inline-flex;align-items:center;gap:14px;font-family:var(--display);font-weight:700;font-size:clamp(20px,3vw,30px);color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:6px;overflow-wrap:anywhere}
+.mail-big svg{width:26px;height:26px;flex:none;color:var(--accent)}
+.mail-big:hover{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{padding:60px 0 56px}
+  .hero .wrap,.split,.edu,.projects{grid-template-columns:1fr;gap:32px}
+  .skills{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps li:nth-child(3){border-left:0}
+  .steps li:nth-child(n+3){border-top:1px solid var(--line)}
+  .proj.lead{grid-column:auto}
+  .github-grid{grid-template-columns:1fr}
+  .topbar nav a:not(.mail):not(.language){display:none}
+  section{padding:60px 0}
+}
+@media (max-width:520px){
+  .wrap{width:calc(100% - 32px)}
+  .steps{grid-template-columns:1fr}
+  .steps li+li{border-left:0;border-top:1px solid var(--line)}
+  .doc{font-size:12.5px;box-shadow:10px 10px 0 color-mix(in srgb,var(--accent) 12%,transparent)}
+  .lang{grid-template-columns:88px 1fr 50px}
+  .brand span{display:none}
+}
+/* portfolio refinements */
+[hidden]{display:none!important}
+.scroll-progress{position:fixed;inset:0 auto auto 0;width:100%;height:3px;z-index:30;pointer-events:none;background:var(--accent);transform:scaleX(0);transform-origin:left center}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;z-index:-1;right:-12%;top:-45%;width:min(750px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 11%,transparent),transparent 68%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;z-index:-2;opacity:.28;pointer-events:none;background-image:radial-gradient(var(--line) .7px,transparent .7px);background-size:26px 26px;mask-image:linear-gradient(90deg,transparent,black)}
+.brand svg{transition:transform .5s cubic-bezier(.2,.8,.2,1)}.brand:hover svg{transform:rotate(-13deg)}
+.btn,.proj,.repo,.case-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.proj:hover,.repo:hover,.case-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 18px 36px rgba(0,0,0,.12)}
+.status i{animation:glow 3s ease-in-out infinite alternate}@keyframes glow{to{box-shadow:0 0 20px 6px color-mix(in srgb,var(--accent) 40%,transparent)}}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
+html.js .reveal.in-view{opacity:1;transform:none}
+.case-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:26px 0}
+.case-tools input,.case-tools select{appearance:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit;font-size:15px;min-height:48px}
+.case-tools input{flex:1 1 240px}.case-tools select{flex:0 1 210px}
+.case-tools input:focus,.case-tools select:focus{outline:2px solid var(--accent);outline-offset:2px}
+.case-count{color:var(--muted);font-size:14px;margin:0 0 16px}
+.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.case-card{display:flex;flex-direction:column;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.case-card .case-tag{font:12px var(--mono);color:var(--accent);letter-spacing:.04em;text-transform:uppercase;margin:0 0 14px}
+.case-card h3{font-family:var(--display);line-height:1.2;font-size:22px;margin:0 0 10px}
+.case-card p{color:var(--muted);font-size:15px;margin:0 0 20px}
+.case-card .case-bottom{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.case-card a{font-size:14px;font-weight:600;text-decoration:none}.case-card a:hover{text-decoration:underline}
+.case-intro{color:var(--muted);max-width:72ch;margin:18px 0 0}
+@media(max-width:900px){.case-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar nav a.analysis-nav{display:inline}}
+@media(max-width:620px){.case-grid{grid-template-columns:1fr}.topbar nav{gap:12px}.topbar nav a.analysis-nav{font-size:13px}.topbar nav .mail{padding:7px 9px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html.js .reveal{opacity:1;transform:none}}
+
+.article-hero{padding:72px 0 26px}.article-hero h1{font-family:var(--display);font-size:clamp(38px,5vw,64px);line-height:1.08;letter-spacing:-.025em;max-width:21ch}.article-hero .lede{max-width:72ch;color:var(--muted)}.article-body .wrap{max-width:840px}.article-body section{border-top:1px solid var(--line);padding:28px 0}.article-body h2{font-family:var(--display);font-size:clamp(26px,3vw,36px)}.article-body h3{font-size:22px}.article-body p,.article-body li{max-width:74ch}.article-body li{margin:8px 0}.example{background:var(--code-bg);border:1px solid var(--line);border-radius:12px;padding:20px;overflow-x:auto;color:#EAF7F6;font:14px/1.7 var(--mono)}.note{border-left:3px solid var(--accent);padding:8px 18px;background:var(--surface)}.article-body a{overflow-wrap:anywhere}.article-foot{padding:30px 0 75px;background:var(--bg-2)}
+@media(max-width:900px){.topbar nav a:not(.mail):not(.language){display:inline}.topbar nav a:nth-child(3),.topbar nav a:nth-child(4){display:none}}@media(max-width:620px){.topbar nav{gap:10px}.topbar nav .mail{display:none}}</style></head><body>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">İ. O. Akbudak</a><nav aria-label="Ana menü"><a href="/">Ana sayfa</a><a href="/analizler.html">Analizler</a><a href="/notlar/">Notlar</a><a class="mail" href="/#iletisim">İletişim</a></nav></div></header>
+<main><div class="article-hero"><div class="wrap"><p class="status">Teknik analiz · 27 Eylül 2026</p><h1>UBL-TR e-Fatura XML Şema Hataları: Teşhis Sırası ve Örnekler</h1><p class="lede">Bir e-Fatura belgesi neden doğrulamadan geçmez? Hata mesajını kaynağına göre ayırmak, XML yapısını, güncel UBL-TR paketini ve uygulamanın iş kurallarını doğru sırada incelemekle başlar.</p><p><a href="/notlar/efatura-xml-dogrulama.html">Önceki XML doğrulama çalışması ↗</a></p></div></div>
+<article class="article-body"><div class="wrap">
+<section><h2>1. Hata hangi katmanda?</h2><p>“XML hatası” tek bir hata türü değildir. XML ayrıştırıcısı belgenin iyi biçimlenmiş olup olmadığını kontrol eder. XSD, izin verilen öğe yapısını ve veri tipini sınar. Şematron, belge üzerinde tanımlı kuralları değerlendirir. Kaynak ERP verisinin iş açısından tutarlı olması ise ayrıca test edilmelidir.</p><p class="note">Bir katmandan geçmek, sonraki katmanlardan veya işlem bağlamından geçileceğini garanti etmez. Kullanılan XSD ve şematron dosyalarının sürümü, GİB’in güncel e-Fatura paketiyle karşılaştırılmalıdır.</p></section>
+<section><h2>2. Teşhis sırası</h2><ol><li><strong>Ham yanıtı sakla:</strong> entegratör veya doğrulayıcı hata metni, zaman damgası ve işlem kimliğini kaydet; erişim anahtarlarını ve kişisel verileri gereksiz yere günlüğe yazma.</li><li><strong>XML ayrıştır:</strong> kapanmamış etiket, kaçışlanmamış karakter ve bozuk karakter kodlamasını kontrol et. Bu aşamada XSD’ye henüz geçilmez.</li><li><strong>Doğru sürümle XSD doğrula:</strong> namespace, öğe sırası, veri tipi ve zorunlu alan için hata yolunu çıkar. Farklı paket sürümünü kullanmak yanıltıcı sonuç verir.</li><li><strong>Şematron ve kod listelerini çalıştır:</strong> alanlar arası kuralları güncel paketle karşılaştır; mesajı XML düğümüne ve ERP kaynak alanına bağla.</li><li><strong>İş kuralını ayrı incele:</strong> satır vergisi, toplam, alıcı durumu ve gönderim senaryosu için somut test senaryosu yaz.</li></ol></section>
+<section><h2>3. Üç örnek hata ve yorum</h2><h3>Örnek A: XML ayrıştırma hatası</h3><pre class="example"><code>&lt;cbc:Note&gt;Mal &amp; hizmet&lt;/cbc:Note&gt;
+              ↑ Kaçışlanmamış &amp; karakteri</code></pre><p>Bu <strong>temsili</strong> örnekte ayrıştırıcı belgeyi okuyamaz. Metindeki ampersand karakteri XML içinde <code>&amp;amp;</code> olarak kaçışlanmalıdır. Bunu şema hatası diye sınıflandırmak çözümü geciktirir.</p>
+<h3>Örnek B: XSD yapısı uyuşmazlığı</h3><p>Bir alan eksik veya beklenen öğe sırasının dışında ise doğrulayıcı alanın yolunu gösterebilir. Kaynak ERP alanı boş mu, XML üretimi alanı atlıyor mu, kullanılan XSD sürümü farklı mı? Kesin nedeni bu üç ihtimali belge ve paket sürümü üzerinde test ederek bulurum. Belirli bir UBL öğesini burada zorunlu ilan etmiyorum; zorunluluk belge tipine ve uygulanan şemaya göre doğrulanmalıdır.</p>
+<h3>Örnek C: Yapısal olarak geçerli, iş açısından sorunlu</h3><p>Şemadan geçen tutarların ERP siparişi ve vergi hesaplarıyla uyuşmaması farklı bir hata sınıfıdır. Satır toplamı, vergi ve ödenecek tutarı kaynak işlemle karşılaştıran test, yalnızca XSD çalıştırmanın gösteremediği farkı yakalayabilir. Bu kontrolün toleransı ve yuvarlama kuralı açıkça tanımlanmalıdır.</p></section>
+<section><h2>4. Hata kaydını nasıl işe yarar hâle getiririm?</h2><p>Bir analiz kaydında <strong>belge türü ve kullanılan paket sürümü</strong>, başarısız kontrol katmanı, hata kodu veya metni, ilgili XML yolu, kaynak ERP alanı, beklenen davranış ve tekrar üretme adımı bulunmalıdır. Böylece “fatura gitmiyor” bildirimi düzeltilebilir gereksinime ve test senaryosuna dönüşür.</p><p>Örneğin “XML ayrıştırma başarısız; açıklama alanındaki ampersand kaçışlanmamış; belge oluşturma aşamasında güvenli XML serileştirme uygulanmalı” ifadesi, sorumluluğu ve düzeltme yerini gösterir.</p></section>
+<section><h2>5. Kaynaklar ve çalışmanın sınırı</h2><p>GİB’in <a href="https://ebelge.gib.gov.tr/duyurular.html">resmî e-Belge duyuruları</a> paketlerin güncel sürümlerini takip etmek için başlangıç noktasıdır. 27 Temmuz 2026 tarihli e-Fatura paketi duyurusunu ve 24 Ağustos 2026 düzeltmesini, kullanılan doğrulama dosyalarıyla karşılaştırmak gerekir.</p><p>Benim <a href="https://github.com/olcayto-akbudak/efatura-dogrulama-kapsami">e-Fatura doğrulama kapsamı</a> çalışmamda test edilen 57 mutasyon senaryosunun sonuçlarını ve yeniden üretim adımlarını yayımladım. Bu bulgular örnek kümesine aittir; tüm UBL-TR belgeleri için genel hata oranı olarak yorumlanamaz. Kısa özet için <a href="/notlar/efatura-xml-dogrulama.html">XML doğrulama notuna</a> bakabilirsiniz.</p></section>
+</div></article><aside class="article-foot"><div class="wrap"><p><a href="/notlar/efatura-xml-dogrulama.html">XML doğrulama notu ↗</a> · <a href="/analizler.html">Analizler ↗</a> · <a href="/">Portföye dön ↗</a></p></div></aside></main><footer><div class="wrap">© İbrahim Olcayto Akbudak</div></footer></body></html>
