@@ -195,6 +195,7 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,40px);l
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
 
 /* responsive */
+.mobile-menu{display:none}
 @media (max-width:900px){
   .hero{padding:60px 0 56px}
   .hero .wrap,.split,.edu,.projects{grid-template-columns:1fr;gap:32px}
@@ -204,7 +205,15 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   .steps li:nth-child(n+3){border-top:1px solid var(--line)}
   .proj.lead{grid-column:auto}
   .github-grid{grid-template-columns:1fr}
+  .topbar nav{gap:8px;margin-left:auto}
   .topbar nav a:not(.mail):not(.language){display:none}
+  .mobile-menu{display:block;margin-left:8px}
+  .mobile-menu summary{list-style:none;cursor:pointer;min-height:42px;display:flex;align-items:center;padding:7px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);font-size:15px}
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu[open] summary{border-color:var(--accent)}
+  .mobile-menu .menu-links{position:absolute;right:16px;top:calc(100% + 8px);width:min(300px,calc(100vw - 32px));display:flex;flex-direction:column;padding:8px;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.24)}
+  .mobile-menu .menu-links a{display:block;padding:10px 12px;border-radius:7px;color:var(--ink);text-decoration:none}
+  .mobile-menu .menu-links a:hover,.mobile-menu .menu-links a:focus-visible{background:var(--surface);color:var(--accent)}
   section{padding:60px 0}
 }
 @media (max-width:520px){
@@ -264,6 +273,17 @@ html.js .reveal.in-view{opacity:1;transform:none}
       <a class="language" href="en.html" lang="en" hreflang="en" aria-label="English version">EN</a>
       <a class="mail" href="#iletisim">İletişim</a>
     </nav>
+    <details class="mobile-menu">
+      <summary>Menü</summary>
+      <div class="menu-links" role="navigation" aria-label="Mobil menü">
+        <a href="#hakkimda">Hakkımda</a>
+        <a href="#deneyim">Deneyim</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#analizler">Analizler</a>
+        <a href="notlar/">Notlar</a>
+        <a href="#iletisim">İletişim</a>
+      </div>
+    </details>
   </div>
 </header>
 
@@ -623,6 +643,9 @@ html.js .reveal.in-view{opacity:1;transform:none}
   <div class="wrap">© <span id="y">2026</span> İbrahim Olcayto Akbudak</div>
 </footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear();
+const mobileMenu = document.querySelector('.mobile-menu');
+mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { mobileMenu.open = false; }));
+mobileMenu.addEventListener('keydown', event => { if (event.key === 'Escape') { mobileMenu.open = false; mobileMenu.querySelector('summary').focus(); } });
 (async function loadGitHubProjects() {
   const user = 'olcayto-akbudak';
   const list = document.getElementById('github-repos');
