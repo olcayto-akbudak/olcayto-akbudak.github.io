@@ -49,3 +49,13 @@ Bootstrap aralıkları seçilen sentetik örnekleme varsayımları içindir; ger
 ## GitHub Pages
 
 `main` dalı ve kök dizin üzerinden yayımlanır. Canlı adres: https://olcayto-akbudak.github.io/
+
+
+## 20 ileri seviye GitHub projesi
+
+[Proje kataloğu](https://olcayto-akbudak.github.io/projeler.html) arama, konu filtresi, yöntem, örnek sonuç ve kaynak bağlantıları sunar. İlk 10 proje ayrı açık GitHub deposunda, diğer 10 proje [github-labs koleksiyonunda](github-labs/README.md) okunabilir kaynak dosyaları ve bağımsız ZIP paketleriyle yer alır. GitHub'ın yeni depo oluşturma hız sınırı nedeniyle bu yerleşim kullanılmıştır.
+
+Toplam 160 alan testi ve 20 sentetik demo yerel ortamda doğrulandı. Ayrı depoların her birinde ve koleksiyonda Linux/Windows, Python 3.12/3.13 CI tanımı vardır. SQLite transaction sonrasında bağlantılar deterministik kapanır; Windows dosya kilidi regresyonu test başlangıçlarında kontrol edilir.
+
+[Tüm kaynakları indir](github-projeleri-20.zip). Örnekler sentetiktir; üretim hizmeti veya gerçek kurum sonucu olarak sunulmaz.
+
