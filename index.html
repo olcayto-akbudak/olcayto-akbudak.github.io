@@ -721,7 +721,7 @@ const cards = [...document.querySelectorAll('.case-card')];
 const search = document.getElementById('case-search');
 const category = document.getElementById('case-category');
 function filterCases() {
-  const fold = value => value.replace(/\u0307/g, '').toLocaleLowerCase('tr-TR');
+  const fold = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('tr-TR').replace(/ı/g, 'i');
   const query = fold(search.value.trim());
   let visible = 0;
   cards.forEach(card => {
