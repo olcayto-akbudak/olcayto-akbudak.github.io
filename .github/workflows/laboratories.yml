@@ -1,0 +1,29 @@
+name: Laboratory collection
+on:
+  push:
+    paths: ['github-labs/**', '.github/workflows/laboratories.yml']
+  pull_request:
+    paths: ['github-labs/**', '.github/workflows/laboratories.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Require all ten project test suites
+        run: python -c "from pathlib import Path; assert len(list(Path('github-labs').glob('test_*.py'))) == 10"
+      - run: python -m unittest discover -s github-labs -p "test_*.py" -v
+      - name: Run all ten demo scenarios
+        working-directory: github-labs
+        run: python -c "import subprocess,sys; from pathlib import Path; files=sorted(Path('.').glob('*_scenario.json')); assert len(files)==10; [subprocess.run([sys.executable,p.name.replace('_scenario.json','.py'),'demo'],check=True) for p in files]"
