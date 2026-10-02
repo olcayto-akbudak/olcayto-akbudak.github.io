@@ -1,0 +1,180 @@
+{
+  "execution": [
+    {
+      "id": "G0",
+      "tenant": "gold",
+      "start": 0,
+      "finish": 3,
+      "round": 1
+    },
+    {
+      "id": "S0",
+      "tenant": "standard",
+      "start": 3,
+      "finish": 5,
+      "round": 1
+    },
+    {
+      "id": "G1",
+      "tenant": "gold",
+      "start": 5,
+      "finish": 9,
+      "round": 2
+    },
+    {
+      "id": "G2",
+      "tenant": "gold",
+      "start": 9,
+      "finish": 14,
+      "round": 2
+    },
+    {
+      "id": "G3",
+      "tenant": "gold",
+      "start": 14,
+      "finish": 20,
+      "round": 3
+    },
+    {
+      "id": "S1",
+      "tenant": "standard",
+      "start": 20,
+      "finish": 23,
+      "round": 3
+    },
+    {
+      "id": "G4",
+      "tenant": "gold",
+      "start": 23,
+      "finish": 26,
+      "round": 4
+    },
+    {
+      "id": "G5",
+      "tenant": "gold",
+      "start": 26,
+      "finish": 30,
+      "round": 5
+    },
+    {
+      "id": "G6",
+      "tenant": "gold",
+      "start": 30,
+      "finish": 35,
+      "round": 5
+    },
+    {
+      "id": "S2",
+      "tenant": "standard",
+      "start": 35,
+      "finish": 39,
+      "round": 5
+    },
+    {
+      "id": "G7",
+      "tenant": "gold",
+      "start": 39,
+      "finish": 45,
+      "round": 6
+    },
+    {
+      "id": "S3",
+      "tenant": "standard",
+      "start": 45,
+      "finish": 47,
+      "round": 6
+    },
+    {
+      "id": "G8",
+      "tenant": "gold",
+      "start": 47,
+      "finish": 50,
+      "round": 7
+    },
+    {
+      "id": "S4",
+      "tenant": "standard",
+      "start": 50,
+      "finish": 53,
+      "round": 7
+    },
+    {
+      "id": "G9",
+      "tenant": "gold",
+      "start": 53,
+      "finish": 57,
+      "round": 8
+    },
+    {
+      "id": "G10",
+      "tenant": "gold",
+      "start": 57,
+      "finish": 62,
+      "round": 8
+    },
+    {
+      "id": "G11",
+      "tenant": "gold",
+      "start": 62,
+      "finish": 68,
+      "round": 9
+    },
+    {
+      "id": "S5",
+      "tenant": "standard",
+      "start": 68,
+      "finish": 72,
+      "round": 9
+    },
+    {
+      "id": "S6",
+      "tenant": "standard",
+      "start": 72,
+      "finish": 74,
+      "round": 10
+    },
+    {
+      "id": "S7",
+      "tenant": "standard",
+      "start": 74,
+      "finish": 77,
+      "round": 12
+    },
+    {
+      "id": "S8",
+      "tenant": "standard",
+      "start": 77,
+      "finish": 81,
+      "round": 14
+    },
+    {
+      "id": "S9",
+      "tenant": "standard",
+      "start": 81,
+      "finish": 83,
+      "round": 15
+    },
+    {
+      "id": "S10",
+      "tenant": "standard",
+      "start": 83,
+      "finish": 86,
+      "round": 16
+    },
+    {
+      "id": "S11",
+      "tenant": "standard",
+      "start": 86,
+      "finish": 90,
+      "round": 18
+    }
+  ],
+  "service_units": {
+    "gold": 54,
+    "standard": 36
+  },
+  "makespan": 90,
+  "rounds": 18,
+  "normalized_jain_index": 0.9,
+  "scope": "All jobs available at time zero; non-preemptive weighted deficit round robin."
+}

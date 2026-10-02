@@ -1,0 +1,1960 @@
+{
+  "now": 4000,
+  "windows": [
+    300,
+    3600
+  ],
+  "minimum": 20,
+  "events": [
+    {
+      "at": 100,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 110,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 120,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 130,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 140,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 150,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 160,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 170,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 180,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 190,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 200,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 210,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 220,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 230,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 240,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 250,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 260,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 270,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 280,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 290,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 300,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 310,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 320,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 330,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 340,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 350,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 360,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 370,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 380,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 390,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 400,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 410,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 420,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 430,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 440,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 450,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 460,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 470,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 480,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 490,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 500,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 510,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 520,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 530,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 540,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 550,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 560,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 570,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 580,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 590,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 600,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 610,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 620,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 630,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 640,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 650,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 660,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 670,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 680,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 690,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 700,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 710,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 720,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 730,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 740,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 750,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 760,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 770,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 780,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 790,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 800,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 810,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 820,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 830,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 840,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 850,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 860,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 870,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 880,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 890,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 900,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 910,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 920,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 930,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 940,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 950,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 960,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 970,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 980,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 990,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 1000,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 1010,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 1020,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 1030,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 1040,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 1050,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 1060,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 1070,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 1080,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 1090,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 1100,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 1110,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 1120,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 1130,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 1140,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 1150,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 1160,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 1170,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 1180,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 1190,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 1200,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 1210,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 1220,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 1230,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 1240,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 1250,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 1260,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 1270,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 1280,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 1290,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 1300,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 1310,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 1320,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 1330,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 1340,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 1350,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 1360,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 1370,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 1380,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 1390,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 1400,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 1410,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 1420,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 1430,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 1440,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 1450,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 1460,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 1470,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 1480,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 1490,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 1500,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 1510,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 1520,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 1530,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 1540,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 1550,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 1560,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 1570,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 1580,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 1590,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 1600,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 1610,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 1620,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 1630,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 1640,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 1650,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 1660,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 1670,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 1680,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 1690,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 1700,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 1710,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 1720,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 1730,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 1740,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 1750,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 1760,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 1770,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 1780,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 1790,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 1800,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 1810,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 1820,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 1830,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 1840,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 1850,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 1860,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 1870,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 1880,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 1890,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 1900,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 1910,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 1920,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 1930,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 1940,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 1950,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 1960,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 1970,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 1980,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 1990,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 2000,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 2010,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 2020,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 2030,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 2040,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 2050,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 2060,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 2070,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 2080,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 2090,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 2100,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 2110,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 2120,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 2130,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 2140,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 2150,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 2160,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 2170,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 2180,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 2190,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 2200,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 2210,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 2220,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 2230,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 2240,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 2250,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 2260,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 2270,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 2280,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 2290,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 2300,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 2310,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 2320,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 2330,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 2340,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 2350,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 2360,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 2370,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 2380,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 2390,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 2400,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 2410,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 2420,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 2430,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 2440,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 2450,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 2460,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 2470,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 2480,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 2490,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 2500,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 2510,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 2520,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 2530,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 2540,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 2550,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 2560,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 2570,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 2580,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 2590,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 2600,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 2610,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 2620,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 2630,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 2640,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 2650,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 2660,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 2670,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 2680,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 2690,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 2700,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 2710,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 2720,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 2730,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 2740,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 2750,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 2760,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 2770,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 2780,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 2790,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 2800,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 2810,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 2820,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 2830,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 2840,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 2850,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 2860,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 2870,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 2880,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 2890,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 2900,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 2910,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 2920,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 2930,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 2940,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 2950,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 2960,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 2970,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 2980,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 2990,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 3000,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 3010,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 3020,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 3030,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 3040,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 3050,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 3060,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 3070,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 3080,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 3090,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 3100,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 3110,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 3120,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 3130,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 3140,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 3150,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 3160,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 3170,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 3180,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 3190,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 3200,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 3210,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 3220,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 3230,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 3240,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 3250,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 3260,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 3270,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 3280,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 3290,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 3300,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 3310,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 3320,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 3330,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 3340,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 3350,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 3360,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 3370,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 3380,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 3390,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 3400,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 3410,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 3420,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 3430,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 3440,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 3450,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 3460,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 3470,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 3480,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 3490,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 3500,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 3510,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 3520,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 3530,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 3540,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 3550,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 3560,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 3570,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 3580,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 3590,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 3600,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 3610,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 3620,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 3630,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 3640,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 3650,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 3660,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 3670,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 3680,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 3690,
+      "ok": true,
+      "latency_ms": 129
+    },
+    {
+      "at": 3700,
+      "ok": false,
+      "latency_ms": 100
+    },
+    {
+      "at": 3710,
+      "ok": true,
+      "latency_ms": 101
+    },
+    {
+      "at": 3720,
+      "ok": true,
+      "latency_ms": 102
+    },
+    {
+      "at": 3730,
+      "ok": true,
+      "latency_ms": 103
+    },
+    {
+      "at": 3740,
+      "ok": true,
+      "latency_ms": 104
+    },
+    {
+      "at": 3750,
+      "ok": false,
+      "latency_ms": 105
+    },
+    {
+      "at": 3760,
+      "ok": true,
+      "latency_ms": 106
+    },
+    {
+      "at": 3770,
+      "ok": true,
+      "latency_ms": 107
+    },
+    {
+      "at": 3780,
+      "ok": true,
+      "latency_ms": 108
+    },
+    {
+      "at": 3790,
+      "ok": true,
+      "latency_ms": 109
+    },
+    {
+      "at": 3800,
+      "ok": false,
+      "latency_ms": 110
+    },
+    {
+      "at": 3810,
+      "ok": true,
+      "latency_ms": 111
+    },
+    {
+      "at": 3820,
+      "ok": true,
+      "latency_ms": 112
+    },
+    {
+      "at": 3830,
+      "ok": true,
+      "latency_ms": 113
+    },
+    {
+      "at": 3840,
+      "ok": true,
+      "latency_ms": 114
+    },
+    {
+      "at": 3850,
+      "ok": false,
+      "latency_ms": 115
+    },
+    {
+      "at": 3860,
+      "ok": true,
+      "latency_ms": 116
+    },
+    {
+      "at": 3870,
+      "ok": true,
+      "latency_ms": 117
+    },
+    {
+      "at": 3880,
+      "ok": true,
+      "latency_ms": 118
+    },
+    {
+      "at": 3890,
+      "ok": true,
+      "latency_ms": 119
+    },
+    {
+      "at": 3900,
+      "ok": false,
+      "latency_ms": 120
+    },
+    {
+      "at": 3910,
+      "ok": true,
+      "latency_ms": 121
+    },
+    {
+      "at": 3920,
+      "ok": true,
+      "latency_ms": 122
+    },
+    {
+      "at": 3930,
+      "ok": true,
+      "latency_ms": 123
+    },
+    {
+      "at": 3940,
+      "ok": true,
+      "latency_ms": 124
+    },
+    {
+      "at": 3950,
+      "ok": false,
+      "latency_ms": 125
+    },
+    {
+      "at": 3960,
+      "ok": true,
+      "latency_ms": 126
+    },
+    {
+      "at": 3970,
+      "ok": true,
+      "latency_ms": 127
+    },
+    {
+      "at": 3980,
+      "ok": true,
+      "latency_ms": 128
+    },
+    {
+      "at": 3990,
+      "ok": true,
+      "latency_ms": 129
+    }
+  ]
+}

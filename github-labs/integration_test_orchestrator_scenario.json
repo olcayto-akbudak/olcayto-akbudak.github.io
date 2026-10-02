@@ -1,0 +1,48 @@
+{
+  "workers": 2,
+  "tasks": [
+    {
+      "id": "auth",
+      "duration": 2,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "id": "create",
+      "duration": 3,
+      "depends": [
+        "auth"
+      ],
+      "expected": 201,
+      "actual": 201,
+      "fail_first": 1,
+      "retries": 1,
+      "idempotency_key": "demo"
+    },
+    {
+      "id": "read",
+      "duration": 1,
+      "depends": [
+        "create"
+      ],
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "id": "slow",
+      "duration": 8,
+      "timeout": 4,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "id": "after-slow",
+      "duration": 1,
+      "depends": [
+        "slow"
+      ],
+      "expected": 200,
+      "actual": 200
+    }
+  ]
+}

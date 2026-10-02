@@ -1,0 +1,27 @@
+{
+  "coverage": [
+    {
+      "requirement": "R1",
+      "covered": true,
+      "tests": [
+        "T1"
+      ],
+      "risk": 5
+    },
+    {
+      "requirement": "R2",
+      "covered": false,
+      "tests": [
+        "T2"
+      ],
+      "risk": 2
+    }
+  ],
+  "weighted_coverage": 0.7142857142857143,
+  "gate": "BLOCK",
+  "impact": [
+    "B1",
+    "T1"
+  ],
+  "orphans": []
+}

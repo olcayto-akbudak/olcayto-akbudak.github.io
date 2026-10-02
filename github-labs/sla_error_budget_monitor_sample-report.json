@@ -1,0 +1,22 @@
+{
+  "page": true,
+  "windows": [
+    {
+      "window_seconds": 300,
+      "requests": 29,
+      "errors": 5,
+      "burn_rate": 17.241379310344815,
+      "p95_ms": 128,
+      "eligible": true
+    },
+    {
+      "window_seconds": 3600,
+      "requests": 359,
+      "errors": 71,
+      "burn_rate": 19.77715877437324,
+      "p95_ms": 128,
+      "eligible": true
+    }
+  ],
+  "remaining_error_budget": 0
+}

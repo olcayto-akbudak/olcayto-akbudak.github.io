@@ -1,0 +1,50 @@
+{
+  "now": 100,
+  "contract": {
+    "unique": "id",
+    "freshness": {
+      "field": "at",
+      "max_age": 20
+    },
+    "fields": {
+      "id": {
+        "type": "string"
+      },
+      "amount": {
+        "type": "integer",
+        "min": 0
+      },
+      "at": {
+        "type": "integer"
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "A",
+      "amount": 100,
+      "at": 90
+    },
+    {
+      "id": "A",
+      "amount": -1,
+      "at": 20
+    },
+    {
+      "id": "B",
+      "amount": 200,
+      "at": 95,
+      "extra": "drift"
+    }
+  ],
+  "baseline_histogram": [
+    50,
+    30,
+    20
+  ],
+  "current_histogram": [
+    20,
+    30,
+    50
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "tenants": {
+    "gold": 3,
+    "standard": 1
+  },
+  "jobs": [
+    {
+      "id": "G0",
+      "tenant": "gold",
+      "cost": 3
+    },
+    {
+      "id": "G1",
+      "tenant": "gold",
+      "cost": 4
+    },
+    {
+      "id": "G2",
+      "tenant": "gold",
+      "cost": 5
+    },
+    {
+      "id": "G3",
+      "tenant": "gold",
+      "cost": 6
+    },
+    {
+      "id": "G4",
+      "tenant": "gold",
+      "cost": 3
+    },
+    {
+      "id": "G5",
+      "tenant": "gold",
+      "cost": 4
+    },
+    {
+      "id": "G6",
+      "tenant": "gold",
+      "cost": 5
+    },
+    {
+      "id": "G7",
+      "tenant": "gold",
+      "cost": 6
+    },
+    {
+      "id": "G8",
+      "tenant": "gold",
+      "cost": 3
+    },
+    {
+      "id": "G9",
+      "tenant": "gold",
+      "cost": 4
+    },
+    {
+      "id": "G10",
+      "tenant": "gold",
+      "cost": 5
+    },
+    {
+      "id": "G11",
+      "tenant": "gold",
+      "cost": 6
+    },
+    {
+      "id": "S0",
+      "tenant": "standard",
+      "cost": 2
+    },
+    {
+      "id": "S1",
+      "tenant": "standard",
+      "cost": 3
+    },
+    {
+      "id": "S2",
+      "tenant": "standard",
+      "cost": 4
+    },
+    {
+      "id": "S3",
+      "tenant": "standard",
+      "cost": 2
+    },
+    {
+      "id": "S4",
+      "tenant": "standard",
+      "cost": 3
+    },
+    {
+      "id": "S5",
+      "tenant": "standard",
+      "cost": 4
+    },
+    {
+      "id": "S6",
+      "tenant": "standard",
+      "cost": 2
+    },
+    {
+      "id": "S7",
+      "tenant": "standard",
+      "cost": 3
+    },
+    {
+      "id": "S8",
+      "tenant": "standard",
+      "cost": 4
+    },
+    {
+      "id": "S9",
+      "tenant": "standard",
+      "cost": 2
+    },
+    {
+      "id": "S10",
+      "tenant": "standard",
+      "cost": 3
+    },
+    {
+      "id": "S11",
+      "tenant": "standard",
+      "cost": 4
+    }
+  ]
+}

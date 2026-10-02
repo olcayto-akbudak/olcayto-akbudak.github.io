@@ -1,0 +1,35 @@
+{
+  "clusters": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "C"
+    ]
+  ],
+  "evidence": [
+    {
+      "left": "A",
+      "right": "C",
+      "score": 1.0,
+      "accepted": false,
+      "reason": "cluster_tax_id_conflict"
+    },
+    {
+      "left": "A",
+      "right": "B",
+      "score": 0.8823529411764706,
+      "accepted": true,
+      "reason": "compatible"
+    },
+    {
+      "left": "B",
+      "right": "C",
+      "score": 0.8823529411764706,
+      "accepted": false,
+      "reason": "cluster_tax_id_conflict"
+    }
+  ],
+  "candidate_count": 3
+}

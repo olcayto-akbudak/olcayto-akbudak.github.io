@@ -1,0 +1,23 @@
+{
+  "records": [
+    {
+      "id": "A",
+      "name": "Olcayto Ticaret",
+      "country": "TR",
+      "tax_id": "111"
+    },
+    {
+      "id": "B",
+      "name": "Olcayto Ticaret Ltd",
+      "country": "TR",
+      "tax_id": ""
+    },
+    {
+      "id": "C",
+      "name": "Olcayto Ticaret",
+      "country": "TR",
+      "tax_id": "222"
+    }
+  ],
+  "threshold": 0.8
+}

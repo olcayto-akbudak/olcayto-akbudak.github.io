@@ -1,0 +1,22 @@
+{
+  "orders": [
+    {
+      "id": "O1",
+      "state": "COMPLETED",
+      "effects": {
+        "inventory": 1,
+        "payment": 1,
+        "shipping": 1
+      }
+    },
+    {
+      "id": "O2",
+      "state": "COMPENSATED",
+      "effects": {
+        "inventory": 0,
+        "payment": 0
+      }
+    }
+  ],
+  "participants": "durable local mocks, not distributed services"
+}

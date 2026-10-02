@@ -1,0 +1,17 @@
+{
+  "score": 21,
+  "selected": [
+    "A",
+    "B",
+    "D"
+  ],
+  "scenario_values": [
+    21,
+    23
+  ],
+  "costs": {
+    "money": 12,
+    "people": 8
+  },
+  "visited_nodes": 20
+}

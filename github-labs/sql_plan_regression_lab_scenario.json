@@ -1,0 +1,6 @@
+{
+  "customers": 150,
+  "orders_per_customer": 12,
+  "repeats": 5,
+  "indexed": true
+}

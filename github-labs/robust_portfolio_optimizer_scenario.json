@@ -1,0 +1,58 @@
+{
+  "budgets": {
+    "money": 12,
+    "people": 8
+  },
+  "items": [
+    {
+      "id": "A",
+      "costs": {
+        "money": 4,
+        "people": 3
+      },
+      "values": [
+        8,
+        6
+      ]
+    },
+    {
+      "id": "B",
+      "costs": {
+        "money": 5,
+        "people": 3
+      },
+      "values": [
+        9,
+        10
+      ],
+      "requires": [
+        "A"
+      ]
+    },
+    {
+      "id": "C",
+      "costs": {
+        "money": 7,
+        "people": 4
+      },
+      "values": [
+        15,
+        8
+      ],
+      "conflicts": [
+        "B"
+      ]
+    },
+    {
+      "id": "D",
+      "costs": {
+        "money": 3,
+        "people": 2
+      },
+      "values": [
+        4,
+        7
+      ]
+    }
+  ]
+}

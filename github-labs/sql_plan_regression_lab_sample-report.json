@@ -1,0 +1,104 @@
+{
+  "queries": {
+    "correlated": {
+      "correct": true,
+      "row_count": 150,
+      "sha256": "47f7204dd9079ca775397068dc6ea02958fd246ddd763397256b0f1ae67cece2",
+      "median_ms": 0.2254779992654221,
+      "plan": [
+        [
+          3,
+          0,
+          216,
+          "SCAN c"
+        ],
+        [
+          7,
+          0,
+          0,
+          "CORRELATED SCALAR SUBQUERY 1"
+        ],
+        [
+          13,
+          7,
+          62,
+          "SEARCH o USING INDEX orders_customer_status (customer_id=? AND status=?)"
+        ]
+      ]
+    },
+    "preaggregate": {
+      "correct": true,
+      "row_count": 150,
+      "sha256": "47f7204dd9079ca775397068dc6ea02958fd246ddd763397256b0f1ae67cece2",
+      "median_ms": 0.2808299996104324,
+      "plan": [
+        [
+          3,
+          0,
+          0,
+          "MATERIALIZE o"
+        ],
+        [
+          11,
+          3,
+          218,
+          "SCAN orders USING INDEX orders_customer_status"
+        ],
+        [
+          48,
+          0,
+          216,
+          "SCAN c"
+        ],
+        [
+          54,
+          0,
+          0,
+          "BLOOM FILTER ON o (customer_id=?)"
+        ],
+        [
+          64,
+          0,
+          47,
+          "SEARCH o USING AUTOMATIC COVERING INDEX (customer_id=?) LEFT-JOIN"
+        ]
+      ]
+    },
+    "fanout_bug": {
+      "correct": false,
+      "row_count": 150,
+      "sha256": "8a366409dbaa50fb1c9ba8b8406f518de495b4cb6a34d345841865e9bad8ec16",
+      "median_ms": 0.4925720004393952,
+      "plan": [
+        [
+          10,
+          0,
+          216,
+          "SCAN c"
+        ],
+        [
+          12,
+          0,
+          62,
+          "SEARCH o USING INDEX orders_customer_status (customer_id=? AND status=?) LEFT-JOIN"
+        ],
+        [
+          22,
+          0,
+          0,
+          "BLOOM FILTER ON t (customer_id=?)"
+        ],
+        [
+          31,
+          0,
+          53,
+          "SEARCH t USING AUTOMATIC COVERING INDEX (customer_id=?) LEFT-JOIN"
+        ]
+      ]
+    }
+  },
+  "expected_sha256": "47f7204dd9079ca775397068dc6ea02958fd246ddd763397256b0f1ae67cece2",
+  "indexed": true,
+  "sqlite_version": "3.53.1",
+  "scope": "Local timing varies; correctness gates precede performance comparison."
+}

@@ -1,0 +1,49 @@
+{
+  "nodes": [
+    {
+      "id": "R1",
+      "kind": "requirement",
+      "risk": 5,
+      "revision": 2
+    },
+    {
+      "id": "R2",
+      "kind": "requirement",
+      "risk": 2,
+      "revision": 1
+    },
+    {
+      "id": "B1",
+      "kind": "rule"
+    },
+    {
+      "id": "T1",
+      "kind": "test",
+      "status": "passed",
+      "tested_revision": 2
+    },
+    {
+      "id": "T2",
+      "kind": "test",
+      "status": "passed",
+      "tested_revision": 0
+    }
+  ],
+  "edges": [
+    [
+      "R1",
+      "B1"
+    ],
+    [
+      "B1",
+      "T1"
+    ],
+    [
+      "R2",
+      "T2"
+    ]
+  ],
+  "changed": [
+    "B1"
+  ]
+}

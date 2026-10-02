@@ -1,0 +1,39 @@
+{
+  "accepted": [
+    {
+      "id": "A",
+      "amount": 100,
+      "at": 90
+    }
+  ],
+  "quarantine": [
+    {
+      "index": 1,
+      "errors": [
+        "amount:RANGE",
+        "id:DUPLICATE",
+        "FRESHNESS"
+      ],
+      "row": {
+        "id": "A",
+        "amount": -1,
+        "at": 20
+      }
+    },
+    {
+      "index": 2,
+      "errors": [
+        "UNKNOWN_FIELD"
+      ],
+      "row": {
+        "id": "B",
+        "amount": 200,
+        "at": 95,
+        "extra": "drift"
+      }
+    }
+  ],
+  "gate": "REVIEW",
+  "row_count": 3,
+  "psi": 0.549774439124493
+}

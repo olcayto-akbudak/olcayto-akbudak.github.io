@@ -1,0 +1,12 @@
+{
+  "orders": [
+    {
+      "id": "O1",
+      "crash_after": "payment"
+    },
+    {
+      "id": "O2",
+      "fail_step": "shipping"
+    }
+  ]
+}
