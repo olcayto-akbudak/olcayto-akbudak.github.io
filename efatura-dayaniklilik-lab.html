@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a0d">
+<title>e-Fatura Dayanıklılık Lab | İbrahim Olcayto Akbudak</title>
+<meta name="description" content="e-Fatura entegrasyonunda timeout, belirsiz işlem durumu, UUID ile tekrar gönderimin engellenmesi ve mutabakat. Etkileşimli sentetik demo ve Python kaynakları.">
+<link rel="canonical" href="https://olcayto-akbudak.github.io/efatura-dayaniklilik-lab.html">
+<meta property="og:title" content="e-Fatura Dayanıklılık Lab"><meta property="og:description" content="Yanıt kayboldu. Fatura gönderildi mi? Sentetik senaryolarla entegrasyon dayanıklılığını inceleyin."><meta property="og:type" content="website"><meta property="og:url" content="https://olcayto-akbudak.github.io/efatura-dayaniklilik-lab.html"><meta property="og:image" content="https://olcayto-akbudak.github.io/og.png">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080a0d;color:#e5e9ed;font:16px/1.8 Arial,sans-serif}header{border-bottom:1px solid #252b32}.wrap{max-width:1100px;margin:auto;width:calc(100% - 48px)}header .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0}nav{display:flex;flex-wrap:wrap;gap:20px}a{color:#aecbd8}main{padding-top:64px}h1{max-width:900px}h2{margin:0 0 22px}h3{margin:0 0 10px;font-size:20px}.eyebrow{font:11px monospace;letter-spacing:.14em;text-transform:uppercase;color:#c6a268}.lead{max-width:740px;font-size:19px;color:#a3adb8}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0}.button,button{font:600 13px var(--body,Arial),sans-serif;padding:13px 18px;background:#aecbd8;color:#10171c;border:1px solid #aecbd8;cursor:pointer;text-decoration:none;display:inline-block}.button.secondary,button.secondary{background:transparent;color:#aecbd8;border-color:#394650}section{padding:65px 0;border-top:1px solid #252b32}.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}.info{border-left:2px solid #c6a268;background:#0d1116;padding:18px 22px;color:#b5c1ca}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.flow div{border:1px solid #252b32;padding:20px}.flow small{display:block;color:#aecbd8;font:11px monospace;letter-spacing:.08em}.flow b{display:block;font-size:18px;margin:10px 0}.flow p{margin:0;color:#a3adb8;font-size:14px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}label{display:block;font-size:13px;color:#b7c2ca;margin-bottom:8px}select,input{width:100%;padding:13px;background:#10151b;border:1px solid #394650;color:#e5e9ed;font:15px var(--body,Arial),sans-serif;min-height:48px}select{appearance:auto}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.stat{border-top:1px solid #394650;padding:18px 0}.stat b{display:block;font-size:36px;line-height:1.3}.stat span{color:#a3adb8;font-size:13px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;min-width:560px}th,td{padding:13px 12px;text-align:left;border-bottom:1px solid #252b32;font-size:13px}th{font-weight:500;color:#a3adb8}td code{overflow-wrap:anywhere}.state{font:12px monospace;color:#aecbd8}.state.UNKNOWN{color:#e4ba70}.state.REJECTED{color:#e6a2a2}.state.ACCEPTED{color:#94d7b1}.notice{min-height:32px;color:#aecbd8;font-size:14px}.events{list-style:none;padding:0;margin:18px 0;max-height:260px;overflow:auto}.events li{border-bottom:1px solid #252b32;padding:10px 0;color:#a3adb8;font-size:13px}.events b{color:#e5e9ed;font:12px monospace}.events time{color:#78838d;margin-right:12px}pre{background:#10151b;padding:20px;overflow:auto;border:1px solid #252b32;font:13px/1.8 monospace}footer{border-top:1px solid #252b32;padding:24px 0;color:#a3adb8;font-size:12px}p,li{overflow-wrap:break-word}:focus-visible{outline:2px solid #c6a268;outline-offset:3px}button:disabled{opacity:.5;cursor:default}@media(max-width:700px){.cols,.controls,.flow{grid-template-columns:1fr;gap:20px}.wrap{width:calc(100% - 36px)}header .wrap{align-items:flex-start;flex-direction:column;gap:10px}.stats{gap:12px}.stat b{font-size:29px}main{padding-top:40px}section{padding:45px 0}}
+</style>
+<link rel="stylesheet" href="design.css?v=20261002b">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"e-Fatura Dayanıklılık Lab","url":"https://olcayto-akbudak.github.io/efatura-dayaniklilik-lab.html","description":"Timeout, tekrar gönderim kontrolü ve mutabakat için sentetik entegrasyon laboratuvarı.","inLanguage":"tr","author":{"@type":"Person","name":"İbrahim Olcayto Akbudak","url":"https://olcayto-akbudak.github.io/"},"dateModified":"2026-10-02","license":"https://opensource.org/license/mit"}</script>
+</head>
+<body class="interior">
+<header><div class="wrap"><a class="brand" href="index.html">İ. O. Akbudak</a><nav aria-label="Proje menüsü"><a href="index.html#projeler">Projeler</a><a href="#demo">Demoyu dene</a><a href="#kaynak">Kaynak kod</a></nav></div></header>
+<main class="wrap">
+<p class="eyebrow">Entegrasyon analizi · Sentetik laboratuvar</p>
+<h1>e-Fatura Dayanıklılık Lab</h1>
+<p class="lead">Yanıt kayboldu. Fatura gönderildi mi? Belirsiz işlem sonucunu yönetmek, mükerrer gönderimi engellemek ve sağlayıcıdaki kayıtla mutabakat yapmak için bir laboratuvar.</p>
+<div class="actions"><a class="button" href="#demo">Senaryoyu dene ↓</a><a class="button secondary" href="efatura-dayaniklilik-lab.zip" download>Python kaynaklarını indir ↗</a></div>
+<p class="info">Bu çalışma tamamen sentetik bir portföy projesidir. Gerçek GİB bağlantısı veya e-Fatura üretimi içermez. Aşağıdaki demo tarayıcı belleğinde çalışır; sayfa yenilendiğinde kayıtlar silinir.</p>
+<section><div class="cols"><div><p class="eyebrow">01 · Problem</p><h2>Bağlantı sonucu ile iş sonucu farklıdır.</h2></div><div><p>ERP bir belgeyi gönderir. Sağlayıcı belgeyi işlese bile yanıt ERP'ye ulaşmayabilir. Ekrandaki timeout, belgenin işlenmediğine dair kesin kanıt vermez. Kontrolsüz tekrar gönderim, aynı işlem için ikinci bir belge oluşturma riski taşır.</p><p>Laboratuvar sonucu <code>UNKNOWN</code> olarak saklar. Aynı firma, ortam ve UUID için ikinci gönderimi engeller; sağlayıcı sorgusuyla kaydı doğrular. Sorguda kayıt bulunamaması da tek başına yeniden gönderim izni vermez.</p></div></div>
+<div class="flow"><div><small>01 / GÖNDERİM</small><b>SENDING</b><p>Belge için tekil bir yerel kayıt ve ilk gönderim girişimi açılır.</p></div><div><small>02 / YANIT KAYBI</small><b>UNKNOWN</b><p>İşlem sonucu belirsiz kalır. Aynı UUID ile tekrar gönderim engellenir.</p></div><div><small>03 / MUTABAKAT</small><b>ACCEPTED veya UNKNOWN</b><p>Sağlayıcıda bulunan kayıt doğrulanır. Bulunamayan kayıt incelemeye açık kalır.</p></div></div></section>
+<section id="demo"><p class="eyebrow">02 · Etkileşimli demo</p><h2>Yanıt kaybını adım adım incele.</h2><p>“İşledi, yanıt kayboldu” senaryosuyla başla. Aynı UUID ile iki kez gönder; ardından belgenin durumunu sorgula. Sağlayıcı belge sayısının birde kaldığını görebilirsin.</p>
+<form id="send-form"><div class="controls"><div><label for="scenario">Sağlayıcı davranışı</label><select id="scenario"><option value="timeout_after_accept">İşledi, yanıt kayboldu</option><option value="timeout_before_accept">İşlenmeden bağlantı kesildi</option><option value="success">Başarılı kabul</option><option value="rejected">Kesin ret</option></select></div><div><label for="uuid">Sentetik belge UUID'si</label><input id="uuid" value="DEMO-001" maxlength="100" required autocomplete="off"></div></div><div class="actions"><button type="submit">Gönderimi simüle et</button><button class="secondary" type="button" id="new-uuid">Yeni UUID oluştur</button><button class="secondary" type="button" id="reset">Demoyu sıfırla</button></div></form>
+<p class="notice" id="notice" role="status" aria-live="polite">Henüz belge gönderilmedi.</p>
+<div class="stats" aria-label="Demo ölçütleri"><div class="stat"><b id="total">0</b><span>Yerel belge kaydı</span></div><div class="stat"><b id="provider">0</b><span>Sağlayıcıdaki belge</span></div><div class="stat"><b id="blocked">0</b><span>Engellenen tekrar</span></div></div>
+<div class="scroll"><table><caption style="text-align:left;margin-bottom:12px">Belge kayıtları</caption><thead><tr><th>UUID</th><th>Yerel durum</th><th>Gönderim</th><th>Sağlayıcı referansı</th><th>İşlem</th></tr></thead><tbody id="records"><tr><td colspan="5">Senaryo gönderdikten sonra kayıtlar burada görünür.</td></tr></tbody></table></div>
+<h3 style="margin-top:32px">Olay günlüğü</h3><ul class="events" id="events" aria-live="polite"></ul>
+<p class="info">Tarayıcı demosu dört sağlayıcı senaryosunu görselleştirir. SQLite tekil kısıtı, içerik özeti çakışması ve eşzamanlı işçi davranışı, indirilebilir Python uygulamasında ve testlerinde bulunur. Demo bir üretim API'si değildir.</p></section>
+<section><p class="eyebrow">03 · Kabul ölçütleri</p><h2>Başarıyı nasıl değerlendiriyorum?</h2><ul><li>Yanıt kaybı otomatik ikinci gönderime dönüşmemeli.</li><li>Aynı UUID'yi eşzamanlı gönderen işçiler tek bir sağlayıcı belgesi üretmeli.</li><li>Sağlayıcıda bulunan kayıt, yerel durumu ve sağlayıcı referansını doğrulamalı.</li><li>Sağlayıcıda bulunamayan kayıt kesin başarısız sayılmamalı.</li><li>Test ve demo ortamları birbirinin kayıtlarıyla çakışmamalı.</li><li>Aynı UUID farklı içerik özetiyle kullanıldığında işlem çakışma olarak reddedilmeli.</li></ul><p>Python paketindeki beş otomatik test bu akışları kapsar. Yayın hazırlığı sırasında beş testin tamamı geçti; eşzamanlı gönderim testi sekiz işçiyle tek sağlayıcı kaydını doğrular.</p></section>
+<section id="kaynak"><p class="eyebrow">04 · Python kaynakları</p><h2>Yerelde çalıştır, sonucu doğrula.</h2><p>Python 3.10 veya üzeri yeterli; üçüncü taraf paket kurulumu gerekmez. Paketi çıkarıp proje klasöründe çalıştır:</p><pre>python -m app.server
+# Tarayıcı: http://127.0.0.1:8080
+
+python -m unittest discover -s tests -v</pre><div class="scroll"><table><thead><tr><th>Dosya</th><th>Görevi</th></tr></thead><tbody><tr><td><code>app/core.py</code></td><td>Durum makinesi, tekil kayıt, sahte sağlayıcı ve mutabakat</td></tr><tr><td><code>app/server.py</code></td><td>Yerel HTTP API ve pano sunucusu</td></tr><tr><td><code>web/index.html</code></td><td>Yerel laboratuvarın kullanıcı arayüzü</td></tr><tr><td><code>tests/test_lab.py</code></td><td>Yanıt kaybı, çakışma, eşzamanlılık ve ortam ayrımı testleri</td></tr><tr><td><code>README.md</code></td><td>Kurulum, API örnekleri, kabul ölçütleri ve mimari kararlar</td></tr></tbody></table></div><div class="actions"><a class="button" href="efatura-dayaniklilik-lab.zip" download>Kaynak paketini indir ↗</a><a class="button secondary" href="index.html#projeler">Diğer projelere dön</a></div><p>Yerel sunucu yalnızca <code>127.0.0.1</code> üzerinde dinler. Gerçek belge veya müşteri verisi kullanılmamalıdır. Üretimde yeniden deneme politikası, dağıtık işlem kontrolü ve erişim yetkileri ilgili sağlayıcının sözleşmesine göre ayrıca tasarlanmalıdır.</p></section>
+</main><footer><div class="wrap">İbrahim Olcayto Akbudak · İş Geliştirme Analisti · Sentetik portföy çalışması</div></footer>
+<script>
+const records = new Map();
+let blocked = 0;
+const $ = id => document.getElementById(id);
+const labels = {success:'Kabul yanıtı alındı.',timeout_after_accept:'Sağlayıcı belgeyi işledi; yanıt kayboldu.',timeout_before_accept:'İstek işlenmeden bağlantı kesildi.',rejected:'Sağlayıcı kesin ret yanıtı verdi.'};
+function event(kind, detail){
+  const li=document.createElement('li');const time=document.createElement('time');time.textContent=new Date().toLocaleTimeString('tr-TR');const b=document.createElement('b');b.textContent=kind;li.append(time,b,document.createTextNode(' · '+detail));$('events').prepend(li);
+}
+function render(){
+  $('total').textContent=records.size;$('provider').textContent=[...records.values()].filter(r=>r.exists).length;$('blocked').textContent=blocked;
+  $('records').replaceChildren();
+  for(const r of [...records.values()].reverse()){
+    const tr=document.createElement('tr');
+    for(const value of [r.uuid,r.state,'1',r.reference||'—']){
+      const td=document.createElement('td');td.textContent=value;
+      if(value===r.state)td.className='state '+r.state;tr.append(td);
+    }
+    const td=document.createElement('td');const button=document.createElement('button');button.type='button';button.className='secondary';button.textContent='Durum sorgula';button.disabled=r.state==='REJECTED';button.addEventListener('click',()=>reconcile(r));td.append(button);tr.append(td);$('records').append(tr);
+  }
+  if(!records.size){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=5;td.textContent='Senaryo gönderdikten sonra kayıtlar burada görünür.';tr.append(td);$('records').append(tr);}
+}
+function reconcile(r){
+  if(r.exists){r.state='ACCEPTED';r.reference=r.providerReference;$('notice').textContent=r.uuid+': sağlayıcı referansı ile kabul doğrulandı.';event('RECONCILED',r.uuid+' · Sağlayıcıdaki kayıtla mutabakat sağlandı.');}
+  else{r.state='UNKNOWN';$('notice').textContent=r.uuid+': kayıt bulunamadı. Kesin başarısızlık kanıtı yok; yeniden gönderim yapılmadı.';event('RECONCILED',r.uuid+' · Sağlayıcıda görünmüyor; sonuç belirsiz.');}
+  render();
+}
+$('send-form').addEventListener('submit',e=>{
+  e.preventDefault();const uuid=$('uuid').value.trim();const behavior=$('scenario').value;
+  if(!uuid){$('notice').textContent='Sentetik bir UUID gir.';return;}
+  if(records.has(uuid)){blocked++;event('DUPLICATE_BLOCKED',uuid+' · Aynı belge için ikinci gönderim açılmadı.');$('notice').textContent='Tekrar engellendi. '+uuid+' için gönderim sayısı hâlâ 1.';render();return;}
+  event('SEND_STARTED',uuid+' · İlk gönderim girişimi.');
+  const exists=behavior==='success'||behavior==='timeout_after_accept';const state=behavior==='success'?'ACCEPTED':behavior==='rejected'?'REJECTED':'UNKNOWN';
+  records.set(uuid,{uuid,state,exists,reference:null,providerReference:exists?'MOCK-'+String(records.size+1).padStart(4,'0'):null});
+  event(state,uuid+' · '+labels[behavior]);$('notice').textContent=labels[behavior]+' Yerel durum: '+state+'.';render();
+});
+$('new-uuid').addEventListener('click',()=>{$('uuid').value='DEMO-'+(globalThis.crypto?.randomUUID?.()||Date.now().toString(36)).slice(0,8).toUpperCase();$('notice').textContent='Yeni sentetik UUID hazır. Senaryo seçip gönderebilirsin.';});
+$('reset').addEventListener('click',()=>{records.clear();blocked=0;$('events').replaceChildren();$('uuid').value='DEMO-001';$('notice').textContent='Demo sıfırlandı.';render();});
+</script>
+</body></html>
