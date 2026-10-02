@@ -1,29 +1,51 @@
 # İbrahim Olcayto Akbudak | İş Geliştirme Analisti
 
-GitHub Pages portföyü ve **yeniden çalıştırılabilir analiz çalışmaları**. Veri kümeleri tamamen sentetiktir; gerçek şirket, müşteri veya GİB kayıtlarını temsil etmez.
+GitHub Pages portföyü. Ana sayfa `index.html`, İngilizce giriş `en.html`, sekiz kapsamlı çalışmanın raporu `analizler.html` dosyasındadır. `notlar/` kaynaklı teknik yazıları içerir. `efatura-dayaniklilik-lab.html` etkileşimli sentetik laboratuvarı ve ayrı Python kaynak paketini sunar.
 
-## Site
+# Kapsamlı analiz portföyü — 02 Ekim 2026
 
-`index.html` ana sayfadır. `en.html` İngilizce giriş sayfası, `og.png` paylaşım görselidir. `notlar/` kaynaklı yazıları, `sitemap.xml` arama motorlarına ait adresleri sunar. `analizler.html` analiz çalışmalarının sonuçlarını ve sorgularını gezilebilir tek sayfada sunar. `analizler-kaynak-kod.zip` bütün veri ve çalıştırılabilir proje klasörlerini içerir; `analizler/<proje>/index.html` adresleri tam kaynak dağıtımında ayrıca çalışır. Filtrelenebilir proje kartları ana sayfada bulunur. Animasyonlar azaltılmış hareket sistem ayarına uyar.
+Sekiz derin SQL/Python çalışması. Bütün veriler sentetiktir; gerçek kurum, müşteri veya GİB kaydı değildir. Python 3.10+ ve standart kitaplık yeterlidir.
 
-GitHub depoları sayfa açıldığında herkese açık API'den çekilir; yalnız kökte ayrıntılı README.md bulunan, anlamlı kapsamda depolar listelenir. Küçük örnek uygulamalar ve profil deposu seçkiye alınmaz. API geçici olarak çalışmazsa profil bağlantısı görünür kalır. Seçili proje anlatımları ve demo analizler, statik site içeriğidir ve kaynak güncellemesiyle değişir.
-
-## Tekrar üretme
-
-Python 3 ve SQLite (Python standart kitaplığı) yeterlidir. Tek bir projeyi çalıştırmak için:
+## Çalıştırma ve doğrulama
 
 ```bash
-python analizler/efatura-sla/run.py
+python run.py
+python run.py --study efatura-sla
+python run.py --verify
 ```
 
-Tüm sentetik veri kümeleri, raporlar ve proje dosyaları aynı sabit tohumla tekrar üretilir:
+`run.py` CSV kaynaklarını SQLite içine yükler, kaydedilmiş SQL sorgularını çalıştırır ve sonuçları `results.json` ile karşılaştırır. `--verify` ayrıca ayrı bir geçici klasörde bütün veri, model ve simülasyon çıktısını yeniden üretir; CSV ve JSON dosyalarını birebir karşılaştırır. Kaynak dosyaları değiştirmez.
 
 ```bash
-python build_analyses.py
+python build_advanced.py
 ```
 
-Her proje klasörü `data.csv`, `analysis.sql`, `run.py`, `results.json`, `index.html` ve `README.md` içerir. `run.py` çıktısı `results.json` ile birebir karşılaştırılabilir. Analizler portföy ve öğrenme amaçlıdır; gerçek operasyonel bulgu, mevzuat yorumu veya yatırım kararı olarak kullanılmaz.
+Bu komut sabit 20261002 tohumu ile bütün CSV, README, SQL, JSON ve katalog dosyalarını yeniden üretir. 27 veri/durum kontrolü yürütür. SQL tabloları yalnız sentetik veriden beslenir. Model parametreleri ve yöntem ayrıntıları `catalog.json` içinde bulunur.
+
+## Dosya yapısı
+
+- `build_advanced.py`: veri üretimi, simülasyonlar, model eğitimi, bootstrap ve kontrol koşulları.
+- `run.py`: kaydedilmiş CSV üzerinde SQL doğrulaması ve tüm çıktıların deterministik yeniden üretme testi.
+- `catalog.json`: yöntem, karar, sınır ve tam sonuçlar.
+- `analizler/<çalışma>/`: birden fazla CSV, schema.sql, analysis.sql, results.json, README.md.
+- `SHA256SUMS`: paketteki kaynak dosyalarının bütünlük listesi.
+
+## Çalışmalar
+
+- **e-Fatura SLA: sansürlü kayıtlar ve vaka karması** — 6.000 belge. Sansür · tabakalama · P95
+- **e-Fatura tekrar gönderim: eşlenmiş politika deneyi** — 4.000 eşlenmiş belge. Eşlenmiş deney · iş etkisi
+- **API kapasitesi: kesinti, kuyruk ve yeniden deneme** — 5.000 istek × 3 politika. Ayrık olay · kuyruk · jitter
+- **Ödeme mutabakatı: çoklu iade, taksit ve kur** — 3.500 ödeme. Çoklu birleşim · kur · tolerans
+- **P2P süreç madenciliği: tekrar işleme ve bekleme** — 3.000 süreç vakası. LAG · tekrar işleme · bootstrap
+- **Müşteri kaybı: zaman ayrımı ve veri sızıntısı** — 5.400 müşteri. Zaman ayrımı · AUC · kalibrasyon
+- **Stok politikası: kesikli talep ve ileri dönem testi** — 60 ürün × 180 gün. İleri dönem test · stok simülasyonu
+- **Veri kalitesi: kayıt eşleştirme ve yanlış birleşme** — 4.000 kayıt / 2.000 kimlik. Aday üretim · precision/recall · kümeler
+
+## Yorum sınırı
+
+Bootstrap aralıkları seçilen sentetik örnekleme varsayımları içindir; gerçek şirket belirsizliğini göstermez. Gözlemsel farklar nedensel etki değildir. Simülasyon kazanımları üretim garantisi değildir. Karma para birimli kuruş toplamları yalnız birleşim hatasını göstermek için kullanılır; ekonomik maruziyet TRY kur dönüşümüyle verilir. Her çalışmanın özel sınırları kendi README dosyasında yer alır.
+
 
 ## GitHub Pages
 
-Bu depo `olcayto-akbudak.github.io` olarak adlandırıldığında **Settings → Pages → Deploy from a branch → main → /(root)** seçimiyle yayımlanır. `index.html` kök dizinde bulunmalıdır. Site adresi `https://olcayto-akbudak.github.io/` olur.
+`main` dalı ve kök dizin üzerinden yayımlanır. Canlı adres: https://olcayto-akbudak.github.io/
