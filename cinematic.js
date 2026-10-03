@@ -7,7 +7,7 @@
   const panels=[...journey.querySelectorAll('.fold-panel')],marks=[...journey.querySelectorAll('.fold-track b')];
   const button=journey.querySelector('.motion-toggle');
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
-  let stopped=preference.matches,visible=true,frame=0,last=0,spin=0,gl,program,buffer,wireBuffer,count=0,wireCount=0;
+  let stopped=preference.matches,visible=true,frame=0,last=0,spin=0,gl,ctx,mesh=[],program,buffer,wireBuffer,count=0,wireCount=0;
   let pointer={x:0,y:0},smoothed=0,dirty=true;
   document.body.classList.add('fold-enhanced');
   function setControl(){document.body.classList.toggle('fold-static',stopped);button.textContent=stopped?'Hareketi başlat':'Hareketi durdur';button.setAttribute('aria-pressed',String(stopped));}
@@ -45,7 +45,7 @@ if(uWire>.5)col=mix(vec3(.40,.61,.79),vec3(.72,.52,.94),vLayer/7.);
 gl_FragColor=vec4(col,uWire>.5?.8:1.);}`;
   function init(){
     try{
-      gl=canvas.getContext('webgl',{alpha:true,antialias:true,powerPreference:'low-power'});if(!gl)return;
+      gl=canvas.getContext('webgl',{alpha:true,antialias:true,powerPreference:'low-power'});if(!gl){initSoftware();return;}
       function shader(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
       program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,vertex));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('Shader link');
       const data=[],lines=[];
@@ -69,10 +69,49 @@ gl_FragColor=vec4(col,uWire>.5?.8:1.);}`;
       journey.classList.add('webgl-ready');
     }catch(error){gl=null;console.warn('3D sahne statik görünümle sunuluyor.',error.message);}
   }
+  function initSoftware(){
+    ctx=canvas.getContext('2d');if(!ctx)return;
+    mesh=[];
+    for(let layer=0;layer<8;layer++){
+      const y=(layer-3.5)*.25,r=1.05+Math.sin(layer/7*Math.PI)*.25;
+      for(let side=0;side<6;side++){
+        const a=side*Math.PI/3+.25,b=(side+1)*Math.PI/3+.25;
+        const A=[Math.cos(a)*r,y,Math.sin(a)*r],B=[Math.cos(b)*r,y,Math.sin(b)*r];
+        const C=[B[0]*.75,y+.09,B[2]*.75],D=[A[0]*.75,y+.09,A[2]*.75];
+        mesh.push({layer,points:[A,B,C,D]},{layer,points:[D,C,[0,y+.18,0]]},{layer,points:[[A[0],y-.05,A[2]],[B[0],y-.05,B[2]],B,A]});
+      }
+    }
+    journey.classList.add('webgl-ready');canvas.dataset.renderer='software-3d';
+  }
+  function drawSoftware(p,w,h){
+    const ry=(v,a)=>[Math.cos(a)*v[0]+Math.sin(a)*v[2],v[1],-Math.sin(a)*v[0]+Math.cos(a)*v[2]];
+    const rx=(v,a)=>[v[0],Math.cos(a)*v[1]-Math.sin(a)*v[2],Math.sin(a)*v[1]+Math.cos(a)*v[2]];
+    const mobile=innerWidth<600,explode=Math.sin(p*Math.PI),angle=spin+p*2.5+pointer.x*.12;
+    const faces=mesh.map(face=>{
+      const points=face.points.map(v=>{
+        let q=[v[0],v[1]+(face.layer-3.5)*explode*.18,v[2]];
+        q=rx(ry(q,(face.layer-3.5)*.17*explode),-.25+p*.45);
+        q=rx(ry(q,angle),pointer.y*.08);
+        q[0]+=mobile?.85:1.35;q[1]+=mobile?-.48:0;q[2]-=6.3;return q;
+      });
+      return {...face,points,depth:points.reduce((sum,v)=>sum+v[2],0)/points.length};
+    }).sort((a,b)=>a.depth-b.depth);
+    ctx.clearRect(0,0,w,h);ctx.lineWidth=Math.max(1,w/stage.clientWidth*.7);
+    for(const face of faces){
+      const [a,b,c]=face.points,u=b.map((v,i)=>v-a[i]),v=c.map((n,i)=>n-a[i]);
+      const n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n)||1;
+      const light=.38+Math.max(0,(-n[0]+2*n[1]+3*n[2])/len/Math.sqrt(14))*1.15;
+      const t=face.layer/7,base=[31+66*t,61-5*t,99+41*t];
+      ctx.fillStyle=`rgb(${base.map(x=>Math.round(x*light)).join(',')})`;
+      ctx.strokeStyle=`rgba(${102+82*t},${156-23*t},${201+39*t},.7)`;
+      ctx.beginPath();face.points.forEach((q,i)=>{const x=w/2+q[0]*h/-q[2],y=h/2-q[1]*h/-q[2];if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.closePath();ctx.fill();ctx.stroke();
+    }
+  }
   function draw(p){
-    if(!gl)return;
+    if(!gl&&!ctx)return;
     const dpr=Math.min(devicePixelRatio||1,innerWidth<700?1.25:1.75),w=Math.round(stage.clientWidth*dpr),h=Math.round(stage.clientHeight*dpr);
-    if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);}
+    if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;if(gl)gl.viewport(0,0,w,h);}
+    if(ctx){drawSoftware(p,w,h);return;}
     gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);
     for(const [name,value] of Object.entries({uTime:spin,uProgress:p,uAspect:w/h,uMobile:innerWidth<600?1:0}))gl.uniform1f(gl.getUniformLocation(program,name),value);
     gl.uniform2f(gl.getUniformLocation(program,'uPointer'),pointer.x,pointer.y);
