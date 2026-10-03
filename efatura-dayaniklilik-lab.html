@@ -12,9 +12,9 @@
 </style>
 <link rel="stylesheet" href="design.css?v=20261002b">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"e-Fatura Dayanıklılık Lab","url":"https://olcayto-akbudak.github.io/efatura-dayaniklilik-lab.html","description":"Timeout, tekrar gönderim kontrolü ve mutabakat için sentetik entegrasyon laboratuvarı.","inLanguage":"tr","author":{"@type":"Person","name":"İbrahim Olcayto Akbudak","url":"https://olcayto-akbudak.github.io/"},"dateModified":"2026-10-02","license":"https://opensource.org/license/mit"}</script>
-</head>
-<body class="interior">
-<header><div class="wrap"><a class="brand" href="index.html">İ. O. Akbudak</a><nav aria-label="Proje menüsü"><a href="index.html#projeler">Projeler</a><a href="#demo">Demoyu dene</a><a href="#kaynak">Kaynak kod</a></nav></div></header>
+<link rel="stylesheet" href="portfolio.css?v=20261003d"></head>
+<body class="ambient-page interior"><div class="page-orbit" aria-hidden="true"><canvas></canvas></div>
+<header><div class="wrap"><a class="brand" href="index.html">İ. O. Akbudak</a><nav aria-label="Proje menüsü"><a href="index.html#projeler">Projeler</a><a href="#demo">Demoyu dene</a><a href="#kaynak">Kaynak kod</a><a href="hakkimda.html">Hakkımda</a></nav></div></header>
 <main class="wrap">
 <p class="eyebrow">Entegrasyon analizi · Sentetik laboratuvar</p>
 <h1>e-Fatura Dayanıklılık Lab</h1>
@@ -74,4 +74,4 @@ $('send-form').addEventListener('submit',e=>{
 $('new-uuid').addEventListener('click',()=>{$('uuid').value='DEMO-'+(globalThis.crypto?.randomUUID?.()||Date.now().toString(36)).slice(0,8).toUpperCase();$('notice').textContent='Yeni sentetik UUID hazır. Senaryo seçip gönderebilirsin.';});
 $('reset').addEventListener('click',()=>{records.clear();blocked=0;$('events').replaceChildren();$('uuid').value='DEMO-001';$('notice').textContent='Demo sıfırlandı.';render();});
 </script>
-</body></html>
+<script src="portfolio.js?v=20261003d" defer></script></body></html>

@@ -5,13 +5,11 @@
   if(!journey)return;
   const stage=journey.querySelector('.fold-stage'),canvas=document.getElementById('fold-canvas');
   const panels=[...journey.querySelectorAll('.fold-panel')],marks=[...journey.querySelectorAll('.fold-track b')];
-  const button=journey.querySelector('.motion-toggle');
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   let stopped=preference.matches,visible=true,frame=0,last=0,spin=0,gl,ctx,mesh=[],program,buffer,wireBuffer,count=0,wireCount=0;
   let pointer={x:0,y:0},smoothed=0,dirty=true;
   document.body.classList.add('fold-enhanced');
-  function setControl(){document.body.classList.toggle('fold-static',stopped);button.textContent=stopped?'Hareketi başlat':'Hareketi durdur';button.setAttribute('aria-pressed',String(stopped));if(stopped){smoothed=0;choreography(0);draw(0);}}
-  button.addEventListener('click',()=>{stopped=!stopped;setControl();dirty=true;start();});
+  function setControl(){document.body.classList.toggle('fold-static',stopped);if(stopped){smoothed=0;choreography(0);draw(0);}}
   preference.addEventListener('change',()=>{stopped=preference.matches;setControl();dirty=true;start();});setControl();
   function progress(){const rect=journey.getBoundingClientRect();return Math.max(0,Math.min(1,-rect.top/Math.max(1,journey.offsetHeight-innerHeight)));}
   function choreography(p){
@@ -36,13 +34,13 @@ vec3 p=aPosition;p.y+=(aLayer-3.5)*explode*.18;p=ry(p,fold);p=rx(p,-.25+uProgres
 float angle=uTime+uProgress*2.5+uPointer.x*.12;p=ry(p,angle);p=rx(p,uPointer.y*.08);
 vNormal=rx(ry(aNormal,angle+fold),-.25+uProgress*.45);vPosition=p;vLayer=aLayer;
 p.x+=mix(1.35,.85,uMobile);p.y+=mix(.0,-.48,uMobile);p.z-=6.3;
-float near=.1,far=40.;float f=2.0;gl_Position=vec4(f*p.x/uAspect,f*p.y,((far+near)/(near-far))*p.z+(2.*far*near/(near-far)),-p.z);}`;
+float near=.1,far=40.;float f=2.35;gl_Position=vec4(f*p.x/uAspect,f*p.y,((far+near)/(near-far))*p.z+(2.*far*near/(near-far)),-p.z);}`;
   const fragment=`precision mediump float;varying vec3 vNormal;varying vec3 vPosition;varying float vLayer;uniform float uWire;
 void main(){vec3 n=normalize(vNormal);float lit=max(0.,dot(n,normalize(vec3(-1.,2.,3.))));float rim=pow(1.-abs(n.z),2.);
-vec3 cool=vec3(.12,.24,.39),warm=vec3(.38,.22,.55);vec3 base=mix(cool,warm,vLayer/7.);
+vec3 cool=vec3(.22,.44,.72),warm=vec3(.62,.35,.86);vec3 base=mix(cool,warm,vLayer/7.);
 vec3 col=base*(.38+lit*1.15)+vec3(.32,.47,.62)*rim*.35;
 if(uWire>.5)col=mix(vec3(.40,.61,.79),vec3(.72,.52,.94),vLayer/7.);
-gl_FragColor=vec4(col,uWire>.5?.8:1.);}`;
+gl_FragColor=vec4(col,1.);}`;
   function init(){
     try{
       gl=canvas.getContext('webgl',{alpha:true,antialias:true,powerPreference:'low-power'});if(!gl){initSoftware();return;}
@@ -96,15 +94,15 @@ gl_FragColor=vec4(col,uWire>.5?.8:1.);}`;
       });
       return {...face,points,depth:points.reduce((sum,v)=>sum+v[2],0)/points.length};
     }).sort((a,b)=>a.depth-b.depth);
-    ctx.clearRect(0,0,w,h);ctx.lineWidth=Math.max(1,w/stage.clientWidth*.7);
+    ctx.clearRect(0,0,w,h);ctx.lineWidth=Math.max(1,w/stage.clientWidth);
     for(const face of faces){
       const [a,b,c]=face.points,u=b.map((v,i)=>v-a[i]),v=c.map((n,i)=>n-a[i]);
       const n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n)||1;
       const light=.38+Math.max(0,(-n[0]+2*n[1]+3*n[2])/len/Math.sqrt(14))*1.15;
-      const t=face.layer/7,base=[31+66*t,61-5*t,99+41*t];
+      const t=face.layer/7,base=[55+82*t,105-22*t,180+30*t];
       ctx.fillStyle=`rgb(${base.map(x=>Math.round(x*light)).join(',')})`;
-      ctx.strokeStyle=`rgba(${102+82*t},${156-23*t},${201+39*t},.7)`;
-      ctx.beginPath();face.points.forEach((q,i)=>{const x=w/2+q[0]*h/-q[2],y=h/2-q[1]*h/-q[2];if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.closePath();ctx.fill();ctx.stroke();
+      ctx.strokeStyle=`rgba(${102+82*t},${156-23*t},${201+39*t},.96)`;
+      ctx.beginPath();face.points.forEach((q,i)=>{const x=w/2+q[0]*h*1.17/-q[2],y=h/2-q[1]*h*1.17/-q[2];if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.closePath();ctx.fill();ctx.stroke();
     }
   }
   function draw(p){
