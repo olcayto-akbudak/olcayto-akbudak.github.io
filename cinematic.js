@@ -10,7 +10,7 @@
   let stopped=preference.matches,visible=true,frame=0,last=0,spin=0,gl,ctx,mesh=[],program,buffer,wireBuffer,count=0,wireCount=0;
   let pointer={x:0,y:0},smoothed=0,dirty=true;
   document.body.classList.add('fold-enhanced');
-  function setControl(){document.body.classList.toggle('fold-static',stopped);button.textContent=stopped?'Hareketi başlat':'Hareketi durdur';button.setAttribute('aria-pressed',String(stopped));}
+  function setControl(){document.body.classList.toggle('fold-static',stopped);button.textContent=stopped?'Hareketi başlat':'Hareketi durdur';button.setAttribute('aria-pressed',String(stopped));if(stopped){smoothed=0;choreography(0);draw(0);}}
   button.addEventListener('click',()=>{stopped=!stopped;setControl();dirty=true;start();});
   preference.addEventListener('change',()=>{stopped=preference.matches;setControl();dirty=true;start();});setControl();
   function progress(){const rect=journey.getBoundingClientRect();return Math.max(0,Math.min(1,-rect.top/Math.max(1,journey.offsetHeight-innerHeight)));}

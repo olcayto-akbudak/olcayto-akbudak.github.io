@@ -49,3 +49,11 @@ body.cinematic{--bg:#08090f;--bg-2:#10111b;--surface:#11131e;--line:#282b40;--ac
 @media(max-width:900px){.cinematic .fold-stage{height:calc(100svh - 64px);top:64px}}
 .cinematic.fold-static .fold-stage{height:auto;top:0}
 @media(prefers-reduced-motion:reduce){.cinematic .fold-stage{height:auto;top:0}}
+
+.cinematic.fold-static .fold-journey{height:auto}
+.cinematic.fold-static .fold-stage{position:relative;min-height:90svh;padding:120px 0 110px}
+.fold-static .fold-panel{position:relative;top:auto;left:auto;width:calc(100% - 96px);margin:0 auto;transform:none!important;opacity:1!important;filter:none!important}
+.fold-static .fold-panel~.fold-panel{display:none!important}
+.fold-static .fold-caption{bottom:18px}
+.fold-static .fold-track,.fold-static .fold-scroll{display:none}
+@media(max-width:600px){.fold-static .fold-panel{width:calc(100% - 36px)}}
